@@ -32,16 +32,7 @@ export default function CommitteeScientificPage() {
   }, []);
 
   // Function to get country code from affiliation
-  const getCountryCode = (affiliation: string): string => {
-    if (affiliation.includes("Algeria")) return "dz";
-    if (affiliation.includes("Egypt")) return "eg";
-    if (affiliation.includes("Romania")) return "ro";
-    if (affiliation.includes("Saudi Arabia")) return "sa";
-    if (affiliation.includes("France")) return "fr";
-    if (affiliation.includes("Tunisia")) return "tn";
-    // Default to Algeria as most members are from there
-    return "dz";
-  };
+
 
   // Scientific Chairman data
   const chairmen = [
