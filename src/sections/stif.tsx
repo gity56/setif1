@@ -190,7 +190,6 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
                     </div>
                   ))}
                 </div>
-                
                 {/* Controls */}
                 <div className="absolute inset-y-0 left-0 flex items-center">
                   <button 
@@ -244,5 +243,6 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
     </div>
   );
 };
+/*kkkk*/
 
 export default SetifPage;
