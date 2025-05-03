@@ -17,19 +17,15 @@ interface SecondPageProps {
 
 const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComplete }) => {
   const [animationStage, setAnimationStage] = useState(0);
-  const [speakersComplete, setSpeakersComplete] = useState(false);
-  const [datesComplete, setDatesComplete] = useState(false);
 
   // Handle speakers completion
   const handleSpeakersComplete = () => {
-    setSpeakersComplete(true);
     // Move to dates stage after speakers are complete
     setAnimationStage(6);
   };
   
   // Handle dates stage completion
   const handleDatesComplete = () => {
-    setDatesComplete(true);
     // Notify parent component that all animations are complete
     onAnimationComplete();
   };
@@ -37,10 +33,8 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
   useEffect(() => {
     // Only start animations if startAnimation is true
     if (startAnimation) {
-      // Reset states when animation starts
+      // Reset state when animation starts
       setAnimationStage(0);
-      setSpeakersComplete(false);
-      setDatesComplete(false);
       
       // Schedule the animation stages
       const timer1 = setTimeout(() => {
