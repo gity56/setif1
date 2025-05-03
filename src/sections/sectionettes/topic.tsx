@@ -1,15 +1,33 @@
 import { useState, useEffect } from 'react';
-import '../../index.css'
 
-export default function TopicsPage() {
+// Define types for component props
+interface DocumentButtonProps {
+  text: string;
+}
+
+interface TopicItemProps {
+  number: string | number;
+  text: string;
+}
+
+export default function EnhancedTopicsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hoveredTopic, setHoveredTopic] = useState<string | null>(null);
   
   useEffect(() => {
     setIsLoaded(true);
   }, []);
   
+  // Topic images mapping
+  const topicImages: Record<string, string> = {
+    "Sustainable Chemistry": "/t3.png", // Replace with real image paths
+    "Green Chemistry": "/t4.png",
+    "Artificial Intelligence": "/t2.png",
+    "Materials Science": "/t1.png"
+  };
+  
   // Document Button Component
-  const DocumentButton = ({ text }: { text: string }) => {
+  const DocumentButton = ({ text }: DocumentButtonProps) => {
     return (
       <div className="inline-block">
         <button className="flex items-center justify-start w-fit h-12 border-none px-4 rounded bg-amber-800 gap-3 cursor-pointer transition-all duration-300 hover:bg-amber-700 active:scale-95">
@@ -47,9 +65,25 @@ export default function TopicsPage() {
       </div>
     );
   };
+
+  // Topic Item Component
+  const TopicItem = ({ number, text }: TopicItemProps) => {
+    const topicKey = text.split(" ").slice(0, 2).join(" ");
+    
+    return (
+      <div 
+        className="flex items-start cursor-pointer transition-all duration-300 hover:text-yellow-400 p-2 rounded hover:bg-gray-900"
+        onMouseEnter={() => setHoveredTopic(topicKey)}
+        onMouseLeave={() => setHoveredTopic(null)}
+      >
+        <span className="mr-2">{number}.</span>
+        <p>{text}</p>
+      </div>
+    );
+  };
   
   return (
-    <div className="flex font1 -mt-16 flex-col items-center justify-center min-h-screen bg-black p-4">
+    <div className="flex font1 -mt-16 flex-col items-center justify-center min-h-screen bg-black p-4 relative">
       <div className="flex flex-col md:flex-row w-full max-w-6xl gap-8 items-center">
         <div 
           className={`md:w-1/2 transform transition-all duration-1000 ease-out ${
@@ -61,25 +95,10 @@ export default function TopicsPage() {
           </h1>
           
           <div className="text-gray-200 text-xl md:text-2xl space-y-6">
-            <div className="flex items-start">
-              <span className="mr-2">1.</span>
-              <p>Sustainable Chemistry and Engineering in Industry</p>
-            </div>
-            
-            <div className="flex items-start">
-              <span className="mr-2">2.</span>
-              <p>Green Chemistry and Energy Storage Innovation</p>
-            </div>
-            
-            <div className="flex items-start">
-              <span className="mr-2">3.</span>
-              <p>Artificial Intelligence for Environmental Protection</p>
-            </div>
-            
-            <div className="flex items-start">
-              <span className="mr-2">4.</span>
-              <p>Materials Science and Technologies</p>
-            </div>
+            <TopicItem number="1" text="Sustainable Chemistry and Engineering in Industry" />
+            <TopicItem number="2" text="Green Chemistry and Energy Storage Innovation" />
+            <TopicItem number="3" text="Artificial Intelligence for Environmental Protection" />
+            <TopicItem number="4" text="Materials Science and Technologies" />
             
             {/* Added buttons below topics */}
             <div className="flex flex-wrap gap-4 mt-8">
@@ -94,13 +113,38 @@ export default function TopicsPage() {
             isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           }`}
         >
-          <img 
-            src="/p001.png" 
-            alt="Scientific research illustration" 
-            className="w-full max-w-lg mx-auto"
-          />
+          {/* Show default image when no topic is hovered, otherwise show the hovered topic image */}
+          {hoveredTopic ? (
+            <div className="w-full max-w-lg mx-auto transition-all duration-500 transform scale-105">
+              <img 
+                src={topicImages[hoveredTopic]} 
+                alt={`${hoveredTopic} illustration`}
+                className="w-full rounded-lg shadow-lg border-2 border-yellow-500"
+              />
+              <p className="text-center text-yellow-400 mt-4 font-semibold">{hoveredTopic}</p>
+            </div>
+          ) : (
+            <img 
+              src="/api/placeholder/600/400" 
+              alt="Scientific research illustration" 
+              className="w-full max-w-lg mx-auto"
+            />
+          )}
         </div>
       </div>
+      
+      {/* This is the large central image that appears on hover */}
+      {hoveredTopic && (
+        <div className="fixed inset-0 pointer-events-none flex items-center justify-center z-10">
+          <div className="bg-black bg-opacity-70 p-6 rounded-xl transform transition-all duration-500 ease-out">
+            <img 
+              src={topicImages[hoveredTopic]}
+              alt={`${hoveredTopic} detail`}
+              className="max-w-2xl max-h-96 object-contain rounded shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

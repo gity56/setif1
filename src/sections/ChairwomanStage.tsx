@@ -29,7 +29,7 @@ const ChairwomanStage: React.FC<ChairwomanStageProps> = ({ animationStage }) => 
           style={imageShadowStyle}
         >
           <img 
-            src="/toukal.jpg" 
+            src="/m100.png" 
             alt="Dr. L.TOUKAL" 
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -41,7 +41,7 @@ const ChairwomanStage: React.FC<ChairwomanStageProps> = ({ animationStage }) => 
           className="text-5xl font-extrabold mb-4"
           style={textShadowStyle}
         >
-          CONFERENCE CHAIRWOMAN
+          CONFERENCE CHAIRMAN
         </h2>
         <p
           className="text-4xl font-bold"

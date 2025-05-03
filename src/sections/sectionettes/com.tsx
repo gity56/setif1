@@ -31,9 +31,6 @@ export default function OrganizationCommitteePage() {
     };
   }, []);
 
-  // Function to get country code from affiliation
-
-
   // Organization Chairman data
   const chairmen = [
     { title: "Pr.", name: "H. BENAMRANI", affiliation: "Setif 1 University, Algeria", country: "dz" },
@@ -75,7 +72,7 @@ export default function OrganizationCommitteePage() {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >
-          ORGANIZATION COMMITTEE
+          ORGANIZING COMMITTEE
         </h1>
         
         {/* Organization Chairman Section */}
@@ -86,28 +83,44 @@ export default function OrganizationCommitteePage() {
           style={{ transitionDelay: '200ms' }}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-6 text-center">
-            ORGANIZATION CHAIRMAN
+            ORGANIZING CHAIRMAN
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 mx-auto w-full max-w-4xl">
-            {chairmen.map((chairman, index) => (
-              <div 
-                key={index}
-                className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-purple-900/30 to-purple-700/10 text-center"
-                style={{ boxShadow: '0 8px 32px rgba(212, 175, 55, 0.1)' }}
-              >
-                <div className="flex items-center justify-center">
-                  <span className="text-xl font-bold text-white">{chairman.title}</span>
-                  <span className="text-xl ml-2 text-white">{chairman.name}</span>
-                  <img 
-                    src={`https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${chairman.country}.svg`} 
-                    alt={`Flag of ${chairman.country}`}
-                    className="w-5 h-4 ml-2 rounded-sm shadow-sm"
-                  />
-                </div>
-                <p className="text-gray-300 mt-2">{chairman.affiliation}</p>
+          {/* Explicitly render each chairman separately for vertical layout */}
+          <div className="mb-12 mx-auto w-full max-w-lg">
+            {/* First Chairman */}
+            <div 
+              className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-purple-900/30 to-purple-700/10 text-center mb-6"
+              style={{ boxShadow: '0 8px 32px rgba(212, 175, 55, 0.1)' }}
+            >
+              <div className="flex items-center justify-center">
+                <span className="text-xl font-bold text-white">{chairmen[0].title}</span>
+                <span className="text-xl ml-2 text-white">{chairmen[0].name}</span>
+                <img 
+                  src={`https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${chairmen[0].country}.svg`} 
+                  alt={`Flag of ${chairmen[0].country}`}
+                  className="w-5 h-4 ml-2 rounded-sm shadow-sm"
+                />
               </div>
-            ))}
+              <p className="text-gray-300 mt-2">{chairmen[0].affiliation}</p>
+            </div>
+
+            {/* Second Chairman */}
+            <div 
+              className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-purple-900/30 to-purple-700/10 text-center"
+              style={{ boxShadow: '0 8px 32px rgba(212, 175, 55, 0.1)' }}
+            >
+              <div className="flex items-center justify-center">
+                <span className="text-xl font-bold text-white">{chairmen[1].title}</span>
+                <span className="text-xl ml-2 text-white">{chairmen[1].name}</span>
+                <img 
+                  src={`https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/${chairmen[1].country}.svg`} 
+                  alt={`Flag of ${chairmen[1].country}`}
+                  className="w-5 h-4 ml-2 rounded-sm shadow-sm"
+                />
+              </div>
+              <p className="text-gray-300 mt-2">{chairmen[1].affiliation}</p>
+            </div>
           </div>
         </div>
         
@@ -119,7 +132,7 @@ export default function OrganizationCommitteePage() {
           style={{ transitionDelay: '400ms' }}
         >
           <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-6 text-center">
-            ORGANIZATION COMMITTEE MEMBERS
+            ORGANIZING COMMITTEE MEMBERS
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto w-full">

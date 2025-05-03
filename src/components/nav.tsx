@@ -16,9 +16,9 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <img 
-              src="/p1.png" 
+              src="/sp1.png" 
               alt="University Logo" 
-              className="h-10 w-auto"
+              className="h-14 w-auto"
             />
           </div>
           

@@ -30,7 +30,7 @@ const DeanStage: React.FC<DeanStageProps> = ({ animationStage }) => {
         >
           <img 
             src="/m2.png" 
-            alt="Pr. HABELHAMES Farid" 
+            alt="Professor University Ferhat Abbas of Setif" 
             className="w-full h-full object-cover"
             onError={(e) => {
               e.currentTarget.src = "/m2.png";
@@ -47,8 +47,7 @@ const DeanStage: React.FC<DeanStageProps> = ({ animationStage }) => {
           className="text-3xl font-semibold mb-12"
           style={textShadowStyle}
         >
-          Dean of the faculty
-        </p>
+        Professor University Ferhat Abbas of Setif            </p>
       </div>
     </div>
   );

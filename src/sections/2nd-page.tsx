@@ -1,32 +1,28 @@
 import '../index.css';
 import React, { useState, useEffect } from 'react';
 
-// Import the separated stage components
 import HonoraryChairsStage from './HonoraryChairsStage';
 import RectorStage from './RectorStage';
 import DeanStage from './DeanStage';
 import ChairwomanStage from './ChairwomanStage';
 import CommitteeStage from './CommitteeStage';
 import DatesStage from './DatesStage';
-import Speakers from './speakers'; // Import Speakers component
+import Speakers from './speakers'; 
 
 interface SecondPageProps {
   startAnimation: boolean;
-  onAnimationComplete: () => void; // Add this callback prop
+  onAnimationComplete: () => void; 
 }
 
 const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComplete }) => {
   const [animationStage, setAnimationStage] = useState(0);
 
-  // Handle speakers completion
   const handleSpeakersComplete = () => {
-    // Move to dates stage after speakers are complete
     setAnimationStage(6);
   };
   
   // Handle dates stage completion
   const handleDatesComplete = () => {
-    // Notify parent component that all animations are complete
     onAnimationComplete();
   };
 
@@ -53,7 +49,6 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
         setAnimationStage(4);
       }, 22000);
       
-      // Add timer for the Speakers
       const timer5 = setTimeout(() => {
         setAnimationStage(5);
       }, 28000);
@@ -66,11 +61,10 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
         clearTimeout(timer5);
       };
     }
-  }, [startAnimation]); // Only depend on startAnimation
+  }, [startAnimation]); 
 
   return (
     <div className="absolute font1 inset-0 w-screen h-screen overflow-hidden m-0 p-0">
-      {/* DNA Background Image */}
       <div
         className="absolute inset-0 w-full h-full z-0 brightness-75 m-0 p-0"
         style={{
@@ -96,7 +90,7 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
           <ChairwomanStage animationStage={animationStage} />
           
           {/* Stage 4: Committee Members */}
-          <CommitteeStage animationStage={animationStage} />
+          <CommitteeStage  animationStage={animationStage} />
           
           {/* Stage 5: Speakers */}
           {animationStage === 5 && (
@@ -106,8 +100,7 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
             />
           )}
           
-          {/* Stage 6: Important Dates */}
-          <DatesStage 
+         <DatesStage 
             animationStage={animationStage === 6 ? 6 : -1} 
             onComplete={handleDatesComplete}
           />

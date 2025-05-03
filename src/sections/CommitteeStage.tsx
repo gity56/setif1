@@ -16,7 +16,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
 
   return (
     <div
-      className={`transition-all -mt-32 duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 flex flex-col items-center
+      className={`transition-all -mt-72 duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 flex flex-col items-center
       ${animationStage === 4 ? 'opacity-100 scale-100' : 
         (animationStage < 4 ? 'opacity-0 scale-90' : 'opacity-0 scale-125')}`}
     >
@@ -28,8 +28,9 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
       </h2>
       
       <div className="flex justify-center items-start space-x-16">
-        {/* Benamrani Hassen */}
+        {/* Column 1: Benamrani Hassen with Fatmi Messaoud below */}
         <div className="flex flex-col items-center">
+          {/* Benamrani Hassen */}
           <motion.div 
             className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
             initial={{ y: 50, opacity: 0 }}
@@ -50,6 +51,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             initial={{ opacity: 0 }}
             animate={animationStage === 4 ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.5 }}
+            className="mb-8"
           >
             <h3
               className="text-2xl font-bold mb-2"
@@ -64,10 +66,8 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
               Head of Department
             </p>
           </motion.div>
-        </div>
-        
-        {/* Fatmi Messaoud */}
-        <div className="flex flex-col items-center">
+          
+          {/* Fatmi Messaoud (Below Benamrani) */}
           <motion.div 
             className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
             initial={{ y: 50, opacity: 0 }}
@@ -104,8 +104,9 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
           </motion.div>
         </div>
         
-        {/* Hamissi Malia */}
+        {/* Column 2: K. AOUACHRIA with Malia below */}
         <div className="flex flex-col items-center">
+          {/* K. AOUACHRIA */}
           <motion.div 
             className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
             initial={{ y: 50, opacity: 0 }}
@@ -114,8 +115,8 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             style={imageShadowStyle}
           >
             <img 
-              src="/m5.png" 
-              alt="Dr. Hamissi Malia" 
+              src="/m110.png" 
+              alt="Pr. K. AOUACHRIA" 
               className="w-full h-full object-cover"
               onError={(e) => {
                 e.currentTarget.src = "/m5.png";
@@ -126,12 +127,49 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             initial={{ opacity: 0 }}
             animate={animationStage === 4 ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.9 }}
+            className="mb-8"
           >
             <h3
               className="text-2xl font-bold mb-2"
               style={textShadowStyle}
             >
-              Dr. Hamissi Malia
+              Pr. K. AOUACHRIA
+            </h3>
+            <p
+              className="text-xl font-semibold"
+              style={textShadowStyle}
+            >
+              Committee Member
+            </p>
+          </motion.div>
+          
+          {/* Malia (Below AOUACHRIA) */}
+          <motion.div 
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            initial={{ y: 50, opacity: 0 }}
+            animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.8 }}
+            style={imageShadowStyle}
+          >
+            <img 
+              src="/m5.png" 
+              alt="Dr. Malia" 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "/m5.png";
+              }}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={animationStage === 4 ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 1.1 }}
+          >
+            <h3
+              className="text-2xl font-bold mb-2"
+              style={textShadowStyle}
+            >
+              Dr. Malia
             </h3>
             <p
               className="text-xl font-semibold"

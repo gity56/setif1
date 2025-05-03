@@ -28,7 +28,7 @@ const ProblematicPage = () => {
           
           <div className="space-y-6 text-lg md:text-xl leading-relaxed">
             <p>
-              <strong>(ICICTM2025)</strong> cordially invites you to participate at our upcoming joint event scheduled for Nov. 18-19th, 2025, Setif, Algeria.
+              <strong>(ICICT 2025)</strong> cordially invites you to participate at our upcoming joint event scheduled for Nov. 18-19th, 2025, Setif, Algeria.
             </p>
             <p>
               The First International Congress on Chemistry, Technology, and Materials Innovation is a unique platform designed to bring together researchers, engineers, and professionals to explore advancements in chemistry and materials science. Topics include integrating sustainable technologies into industry, such as green chemistry and energy optimization, as well as the development of new materials for environmental and energy applications.

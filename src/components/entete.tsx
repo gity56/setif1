@@ -238,6 +238,18 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
               }}
             />
           </div>
+          <div className="relative w-48 h-48">
+            <img 
+              src="/u4.png" 
+              alt="faculty picture" 
+              className="absolute top-0 left-0 w-full h-full object-contain"
+              style={{ 
+                clipPath: `inset(0 ${100 - imageAnimationProgress[2]}% 0 0)`,
+                transition: 'clip-path 0.5s ease-out'
+              }}
+            />
+          </div>
+          
         </div>
 
         <div className="text-center text-white p-8 max-w-5xl">
@@ -283,7 +295,6 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
             </div>
           </div>
 
-          {/* Conference Information - Stage 2 */}
           <div
             className={`transition-all -mt-32 duration-1000 absolute left-0 right-0
             ${animationStage === 2 ? 'opacity-100' : 'opacity-0'}`}

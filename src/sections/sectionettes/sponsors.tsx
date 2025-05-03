@@ -46,12 +46,6 @@ export default function SponsorsPage() {
       tier: "gold"
     },
     {
-      name: "ICICT-2025",
-      logo: "/sp1.png", // Replace with the actual path: "/icict-2025-logo.png"
-      website: "www.icict2025.org",
-      tier: "platinum"
-    },
-    {
       name: "Zaim",
       logo: "/sp2.png", // Replace with the actual path: "/zaim-logo.png"
       website: "www.zaim.dz",
@@ -81,9 +75,9 @@ export default function SponsorsPage() {
           <div className="absolute bottom-2/3 right-1/3 text-6xl">❖</div>
         </div>
         
-        {/* Sponsors Grid */}
+        {/* Sponsors Grid - Using flex for better centering */}
         <div 
-          className={`w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-1000 ease-out ${
+          className={`w-full flex flex-wrap justify-center gap-8 transform transition-all duration-1000 ease-out ${
             logosFadeIn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >
@@ -101,7 +95,8 @@ export default function SponsorsPage() {
                 boxShadow: sponsor.tier === 'platinum' 
                   ? '0 8px 32px rgba(212, 175, 55, 0.15)' 
                   : '0 8px 32px rgba(212, 175, 55, 0.1)',
-                transitionDelay: `${index * 150}ms`
+                transitionDelay: `${index * 150}ms`,
+                width: '280px' // Fixed width for consistent sizing
               }}
             >
               <div className="h-48 w-48 flex items-center justify-center mb-4 overflow-hidden rounded-lg bg-white/5 p-4">
@@ -138,27 +133,6 @@ export default function SponsorsPage() {
           ))}
         </div>
         
-        {/* Call to Action */}
-        <div 
-          className={`mt-16 max-w-2xl mx-auto text-center transform transition-all duration-1000 ease-out ${
-            logosFadeIn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-          }`}
-          style={{ transitionDelay: '800ms' }}
-        >
-          <h2 className="text-2xl md:text-3xl font-bold text-yellow-500 mb-4">
-            Become a Sponsor
-          </h2>
-          <p className="text-gray-300 mb-8">
-            Join these prestigious organizations in supporting ICICTM2025. Contact us to learn more about 
-            our sponsorship opportunities and benefits.
-          </p>
-          <a 
-            href="#contact" 
-            className="inline-block py-3 px-8 bg-yellow-500 hover:bg-yellow-600 text-black font-bold rounded-lg transition-colors duration-300"
-          >
-            Contact for Sponsorship
-          </a>
-        </div>
       </div>
     </div>
   );
