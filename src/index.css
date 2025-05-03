@@ -18,6 +18,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.lines span {
+  --size: 1px;
+  position: absolute;
+  width: var(--size);
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  left: calc(var(--i) * 2%);
+  animation: animateLines 10s linear infinite;
+}
+
+@keyframes animateLines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
 
 
 body {

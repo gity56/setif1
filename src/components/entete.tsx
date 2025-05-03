@@ -17,6 +17,10 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
   const [congressText, setCongressText] = useState("");
   const [icictText, setIcictText] = useState("");
   const [dateText, setDateText] = useState("");
+  
+  // New states for image animations
+  const [showImages, setShowImages] = useState(false);
+  const [imageAnimationProgress, setImageAnimationProgress] = useState([0, 0, 0]);
 
   useEffect(() => {
     // Stage 0: Welcome text typing
@@ -31,12 +35,52 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
         clearInterval(welcomeTyping);
         setTimeout(() => {
           setAnimationStage(1);
+          // Start showing images when stage 1 begins
+          setShowImages(true);
+          // Begin image animation sequence
+          animateImagesSequentially();
         }, 1000);
       }
     }, 200);
 
     return () => clearInterval(welcomeTyping);
   }, []);
+
+  // Function to animate images sequentially
+  const animateImagesSequentially = () => {
+    // Animate first image
+    let progress = 0;
+    const animateImage1 = setInterval(() => {
+      if (progress < 100) {
+        progress += 5;
+        setImageAnimationProgress([progress, 0, 0]);
+      } else {
+        clearInterval(animateImage1);
+        
+        // Animate second image
+        progress = 0;
+        const animateImage2 = setInterval(() => {
+          if (progress < 100) {
+            progress += 5;
+            setImageAnimationProgress([100, progress, 0]);
+          } else {
+            clearInterval(animateImage2);
+            
+            // Animate third image
+            progress = 0;
+            const animateImage3 = setInterval(() => {
+              if (progress < 100) {
+                progress += 5;
+                setImageAnimationProgress([100, 100, progress]);
+              } else {
+                clearInterval(animateImage3);
+              }
+            }, 50);
+          }
+        }, 50);
+      }
+    }, 50);
+  };
 
   useEffect(() => {
     if (animationStage === 1) {
@@ -159,6 +203,43 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
 
       {/* Content Overlay */}
       <div className="relative z-10 flex h-full items-center justify-center">
+        {/* New Top Image Row */}
+        <div className={`absolute top-8 left-0 right-0 flex justify-center space-x-12 transition-opacity duration-1000 ${showImages ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="relative w-48 h-48">
+            <img 
+              src="/u1.png" 
+              alt="University Logo" 
+              className="absolute top-0 left-0 w-full h-full object-contain"
+              style={{ 
+                clipPath: `inset(0 ${100 - imageAnimationProgress[0]}% 0 0)`,
+                transition: 'clip-path 0.5s ease-out'
+              }}
+            />
+          </div>
+          <div className="relative w-48 h-48">
+            <img 
+              src="/u2.png" 
+              alt="Faculty Logo" 
+              className="absolute top-0 left-0 w-full h-full object-contain"
+              style={{ 
+                clipPath: `inset(0 ${100 - imageAnimationProgress[1]}% 0 0)`,
+                transition: 'clip-path 0.5s ease-out'
+              }}
+            />
+          </div>
+          <div className="relative w-48 h-48">
+            <img 
+              src="/u3.png" 
+              alt="Laboratory Logo" 
+              className="absolute top-0 left-0 w-full h-full object-contain"
+              style={{ 
+                clipPath: `inset(0 ${100 - imageAnimationProgress[2]}% 0 0)`,
+                transition: 'clip-path 0.5s ease-out'
+              }}
+            />
+          </div>
+        </div>
+
         <div className="text-center text-white p-8 max-w-5xl">
           {/* Welcome Message - Stage 0 */}
           <div

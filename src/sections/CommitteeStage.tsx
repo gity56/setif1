@@ -1,0 +1,149 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface CommitteeStageProps {
+  animationStage: number;
+}
+
+const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
+  const textShadowStyle = {
+    textShadow: '3px 3px 6px rgba(0,0,0,0.9), -3px -3px 6px rgba(0,0,0,0.9)',
+  };
+
+  const imageShadowStyle = {
+    filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.7))'
+  };
+
+  return (
+    <div
+      className={`transition-all -mt-32 duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 flex flex-col items-center
+      ${animationStage === 4 ? 'opacity-100 scale-100' : 
+        (animationStage < 4 ? 'opacity-0 scale-90' : 'opacity-0 scale-125')}`}
+    >
+      <h2
+        className="text-5xl font-extrabold mb-10"
+        style={textShadowStyle}
+      >
+        COMMITTEE MEMBERS
+      </h2>
+      
+      <div className="flex justify-center items-start space-x-16">
+        {/* Benamrani Hassen */}
+        <div className="flex flex-col items-center">
+          <motion.div 
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            initial={{ y: 50, opacity: 0 }}
+            animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.2 }}
+            style={imageShadowStyle}
+          >
+            <img 
+              src="/m6.png" 
+              alt="Pr. Benamrani Hassen" 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "/m6.png";
+              }}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={animationStage === 4 ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.5 }}
+          >
+            <h3
+              className="text-2xl font-bold mb-2"
+              style={textShadowStyle}
+            >
+              Pr. Benamrani Hassen
+            </h3>
+            <p
+              className="text-xl font-semibold"
+              style={textShadowStyle}
+            >
+              Head of Department
+            </p>
+          </motion.div>
+        </div>
+        
+        {/* Fatmi Messaoud */}
+        <div className="flex flex-col items-center">
+          <motion.div 
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            initial={{ y: 50, opacity: 0 }}
+            animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.4 }}
+            style={imageShadowStyle}
+          >
+            <img 
+              src="/m4.png" 
+              alt="Pr. Fatmi Messaoud" 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "/m4.png";
+              }}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={animationStage === 4 ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.7 }}
+          >
+            <h3
+              className="text-2xl font-bold mb-2"
+              style={textShadowStyle}
+            >
+              Pr. Fatmi Messaoud
+            </h3>
+            <p
+              className="text-xl font-semibold"
+              style={textShadowStyle}
+            >
+              Scientific Committee Chair
+            </p>
+          </motion.div>
+        </div>
+        
+        {/* Hamissi Malia */}
+        <div className="flex flex-col items-center">
+          <motion.div 
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            initial={{ y: 50, opacity: 0 }}
+            animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.6 }}
+            style={imageShadowStyle}
+          >
+            <img 
+              src="/m5.png" 
+              alt="Dr. Hamissi Malia" 
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "/m5.png";
+              }}
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={animationStage === 4 ? { opacity: 1 } : {}}
+            transition={{ duration: 1, delay: 0.9 }}
+          >
+            <h3
+              className="text-2xl font-bold mb-2"
+              style={textShadowStyle}
+            >
+              Dr. Hamissi Malia
+            </h3>
+            <p
+              className="text-xl font-semibold"
+              style={textShadowStyle}
+            >
+              Committee Member
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default CommitteeStage;

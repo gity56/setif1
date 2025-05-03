@@ -26,7 +26,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
       // After description fades out, show map
       const mapTimer = setTimeout(() => {
         setShowMap(true);
-      }, 2500);
+      }, 1000);
   
       // After map appears, show carousel after exactly 3 seconds
       const carouselTimer = setTimeout(() => {

@@ -8,6 +8,7 @@ import RegistrationFeesPage from './sectionettes/reg';
 import CommitteeScientificPage from './sectionettes/committee';
 import OrganizationCommitteePage from './sectionettes/com';
 import SponsorsPage from './sectionettes/sponsors';
+import Form from './sectionettes/form';
 
 const Mainn: React.FC = () => {
   return (
@@ -35,6 +36,9 @@ const Mainn: React.FC = () => {
           <section id="organization-committee" className="min-h-screen w-full py-20">
             <OrganizationCommitteePage />
           </section>
+          <section id="form" className="min-h-screen w-full py-20">
+            <Form />
+          </section> 
           <section id="sponsors" className="min-h-screen w-full py-20">
             <SponsorsPage />
           </section>

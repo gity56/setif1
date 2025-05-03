@@ -6,6 +6,7 @@ import SecondPage from './sections/2nd-page'
 import SetifPage from './sections/stif'
 import Mainn from './sections/mainn'
 import Navbar from './components/nav'
+import OrganizationCommitteePage from './sections/sectionettes/com'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('first')
@@ -51,7 +52,7 @@ function App() {
             setStartSetifAnimation(true)
           }, 500)
         }, 1000) // Match the animation duration
-      }, 33000) // Allow full animation cycle plus a buffer
+      }, 53000) // Allow full animation cycle plus a buffer
       
       return () => clearTimeout(setifTransitionTimer)
     }
@@ -112,7 +113,7 @@ function App() {
           }`}
           style={{ margin: 0, padding: 0 }}
         >
-          <SecondPage startAnimation={startSecondPageAnimation} />
+          <SecondPage onAnimationComplete={OrganizationCommitteePage} startAnimation={startSecondPageAnimation} />
         </div>
 
         {/* Setif Page */}
