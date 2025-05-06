@@ -125,7 +125,7 @@ export default function EnhancedTopicsPage() {
             </div>
           ) : (
             <img 
-              src="/api/placeholder/600/400" 
+              src="/p001.png" 
               alt="Scientific research illustration" 
               className="w-full max-w-lg mx-auto"
             />

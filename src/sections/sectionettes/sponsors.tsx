@@ -60,7 +60,7 @@ export default function SponsorsPage() {
     >
       <div className="flex flex-col w-full max-w-6xl gap-8 items-center px-4 md:px-8 mx-auto text-center">
         <h1 
-          className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 transform transition-all duration-1000 ease-out ${
+          className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 transform transition-all duration-1000 ease-out text-center w-full ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >
@@ -75,16 +75,16 @@ export default function SponsorsPage() {
           <div className="absolute bottom-2/3 right-1/3 text-6xl">❖</div>
         </div>
         
-        {/* Sponsors Grid - Using flex for better centering */}
+        {/* Sponsors Grid - Modified for better centering */}
         <div 
-          className={`w-full flex flex-wrap justify-center gap-8 transform transition-all duration-1000 ease-out ${
+          className={`w-full flex flex-wrap justify-center items-center gap-8 transform transition-all duration-1000 ease-out ${
             logosFadeIn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >
           {sponsors.map((sponsor, index) => (
             <div 
               key={index}
-              className={`flex flex-col items-center rounded-xl p-6 backdrop-blur-sm transition-all duration-500 hover:scale-105 ${
+              className={`flex flex-col items-center justify-center rounded-xl p-6 backdrop-blur-sm transition-all duration-500 hover:scale-105 ${
                 sponsor.tier === 'platinum' 
                   ? 'border-2 border-yellow-400/50 bg-gradient-to-br from-yellow-900/20 to-yellow-700/10' 
                   : sponsor.tier === 'gold'
@@ -103,23 +103,23 @@ export default function SponsorsPage() {
                 <img 
                   src={sponsor.logo} 
                   alt={`${sponsor.name} logo`} 
-                  className="max-h-full max-w-full object-contain drop-shadow-lg"
+                  className="max-h-full max-w-full object-contain drop-shadow-lg mx-auto"
                 />
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-2">{sponsor.name}</h3>
+              <h3 className="text-xl font-bold text-white mb-2 text-center">{sponsor.name}</h3>
               
               <a 
                 href={`https://${sponsor.website}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-sm text-yellow-500 hover:text-yellow-400 transition-colors"
+                className="text-sm text-yellow-500 hover:text-yellow-400 transition-colors text-center"
               >
                 {sponsor.website}
               </a>
               
               <div 
-                className={`mt-4 py-1 px-3 rounded-full text-xs font-semibold ${
+                className={`mt-4 py-1 px-3 rounded-full text-xs font-semibold text-center ${
                   sponsor.tier === 'platinum' 
                     ? 'bg-yellow-500/20 text-yellow-300' 
                     : sponsor.tier === 'gold'
@@ -132,7 +132,6 @@ export default function SponsorsPage() {
             </div>
           ))}
         </div>
-        
       </div>
     </div>
   );

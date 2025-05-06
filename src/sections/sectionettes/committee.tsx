@@ -91,8 +91,9 @@ export default function CommitteeScientificPage() {
       className="flex flex-col font1 items-center justify-center min-h-screen bg-black p-4 w-full overflow-hidden"
     >
       <div className="flex flex-col w-full max-w-6xl gap-8 items-center px-4 md:px-8 mx-auto text-center">
-        <h1 
-          className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 transform transition-all duration-1000 ease-out ${
+
+      <h1 
+          className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 text-center w-full transform transition-all duration-1000 ease-out ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >

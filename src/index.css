@@ -127,3 +127,76 @@ background-image:  linear-gradient(30deg, #000000 12%, transparent 12.5%, transp
 background-size: 16px 28px;
 background-position: 0 0, 0 0, 8px 14px, 8px 14px, 0 0, 8px 14px;
 }
+/* Add these styles to your CSS file (App.css or index.css) */
+
+/* Allow content overflow but maintain page structure */
+.section-container {
+  min-height: calc(100vh - 200px);
+  overflow-y: auto;
+  padding-bottom: 2rem;
+}
+
+/* Style for the navigation bar to keep it fixed */
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+/* Ensure content has proper spacing below navbar */
+.content-with-navbar {
+  padding-top: 80px;
+}
+
+/* Make scrolling smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Style for navigation buttons at the bottom */
+.nav-buttons {
+  position: sticky;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 50;
+
+}
+/* Add this to your CSS file (index.css) */
+
+/* Force committee sections to start at the top */
+#scientific-committee, 
+#organization-committee {
+  display: block !important;
+  position: relative !important;
+  top: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+  align-self: flex-start !important;
+}
+
+/* Additional styles for the committee content to ensure it starts at the top */
+#scientific-committee > div, 
+#organization-committee > div {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Override any flexbox centering that might be causing the issue */
+.flex-col, .flex {
+  align-items: flex-start !important;
+}
+
+/* Make sure the committee content containers don't have centering properties */
+[id^="committee"] .flex-col,
+[id^="committee"] .flex {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+}
+
+/* Force scroll behavior */
+html, body, #root, .main-container {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}

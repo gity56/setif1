@@ -33,9 +33,9 @@ export default function ObjectivesPage() {
   return (
     <div 
       ref={sectionRef}
-      className="flex flex-col font1 -mt-10 items-center justify-center min-h-screen bg-black p-4 w-full overflow-hidden"
+      className="flex flex-col font1  items-center justify-center min-h-screen bg-black p-4 w-full overflow-hidden"
     >
-      <div className="flex flex-col md:flex-row w-full max-w-6xl gap-8 items-center px-4 md:px-8">
+      <div className="flex flex-col mt-28 md:flex-row w-full max-w-6xl mt-28 gap-8 items-center px-4 md:px-8">
         <div className="md:w-1/2 space-y-6">
           <h1 
             className={`text-4xl md:text-6xl font-bold mb-8 text-yellow-500 transform transition-all duration-1000 ease-out ${
@@ -68,7 +68,7 @@ export default function ObjectivesPage() {
         </div>
         
         <div 
-          className={`md:w-1/2 transform transition-all duration-1200 ease-out ${
+          className={`md:w-1/2 transform -mt-28 transition-all duration-1200 ease-out ${
             isVisible ? 'translate-x-0 scale-100 opacity-100' : 'translate-x-full scale-90 opacity-0'
           }`}
         >
