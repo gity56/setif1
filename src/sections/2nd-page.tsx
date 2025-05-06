@@ -61,7 +61,7 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
   }, [startAnimation]); 
 
   return (
-    <div className="w-full h-full flex items-center justify-center overflow-hidden">
+    <div className="w-full font1 h-full flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full z-0 brightness-75"
