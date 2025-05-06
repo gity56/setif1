@@ -2,7 +2,7 @@ import '../../index.css'
 
 const ProblematicPage = () => {
   return (
-    <div className="min-h-screen mt-10 font1 text-[#eeeeee] font-sans overflow-hidden">
+    <div className="min-h-screen -mt-12 font1 text-[#eeeeee] font-sans overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-10 left-10 text-6xl">✧</div>

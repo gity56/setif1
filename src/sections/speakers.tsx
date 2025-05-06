@@ -1,3 +1,4 @@
+// Speakers.tsx
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -172,7 +173,7 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
     return (
       <motion.div 
         key={`group${groupIndex}`}
-        className="flex justify-center items-center space-x-4 md:space-x-12 flex-wrap md:flex-nowrap"
+        className="flex justify-center items-center space-x-4 md:space-x-12 flex-wrap md:flex-nowrap w-full"
         initial="hidden"
         animate="visible"
         exit="exit"
@@ -181,13 +182,13 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
         {groupData.map((speaker: Speaker, index: number) => (
           <motion.div
             key={`group${groupIndex}-${index}`}
-            className="flex flex-col items-center mb-8 md:mb-0"
+            className="flex flex-col items-center mb-8 md:mb-0 text-center mx-auto"
             variants={speakerVariants}
             transition={{ duration: 0.8, delay: 0.2 * index }}
           >
             {/* Speaker Image */}
             <motion.div 
-              className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white mb-3 relative"
+              className="w-28 h-28 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white mb-3 relative mx-auto"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               style={imageShadowStyle}
@@ -212,10 +213,10 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
             </motion.div>
             
             {/* Speaker Info */}
-            <motion.div>
+            <motion.div className="text-center w-full">
               {/* Speaker Name */}
               <h3 
-                className="text-lg md:text-xl font-bold mb-1 text-white"
+                className="text-lg md:text-xl font-bold mb-1 text-white text-center"
                 style={textShadowStyle}
               >
                 {speaker.name}
@@ -223,7 +224,7 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
               
               {/* Affiliation */}
               <p 
-                className="text-xs md:text-sm max-w-xs mx-auto text-gray-300"
+                className="text-xs md:text-sm max-w-xs mx-auto text-gray-300 text-center"
                 style={textShadowStyle}
               >
                 {speaker.affiliation}
@@ -246,10 +247,10 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
   };
 
   return (
-    <div className="text-center mt-28 text-white py-8 relative flex flex-col items-center justify-start overflow-visible bg-transparent min-h-screen">
+    <div className="text-center mt-28 text-white py-8 relative flex flex-col items-center justify-center w-full overflow-visible bg-transparent min-h-screen">
       {/* Title - Always visible */}
       <motion.h2
-        className="text-4xl md:text-6xl font-extrabold mb-8 text-yellow-500"
+        className="text-4xl md:text-6xl font-extrabold mb-8 text-yellow-500 text-center w-full"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -259,7 +260,7 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
       </motion.h2>
 
       {/* Speaker Groups - Only one visible at a time */}
-      <div className="w-full max-w-6xl mx-auto relative h-96">
+      <div className="w-full max-w-6xl mx-auto relative h-96 flex justify-center items-center">
         <AnimatePresence mode="wait">
           {displayGroup === 1 && renderSpeakerGroup(1, speakersData[0])}
           {displayGroup === 2 && renderSpeakerGroup(2, speakersData[1])}

@@ -1,6 +1,4 @@
-// Updated Navbar component with visibility control
-// Replace your current Navbar component with this code
-
+// Updated Navbar component with improved navigation handling
 import React, { useState, useEffect } from 'react';
 import '../index.css';
 
@@ -12,6 +10,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [mouseY, setMouseY] = useState(0);
   const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [activeSection, setActiveSection] = useState('problematic');
 
   // Track mouse position
   useEffect(() => {
@@ -54,10 +53,16 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
     { id: 'topic', label: 'Topics' },
     { id: 'objectives', label: 'Objectives' },
     { id: 'registration-fees', label: 'Registration Fees' },
-    { id: 'scientific-committee', label: 'Scientific committee' },
-    { id: 'organization-committee', label: 'Organization committee' },
+    { id: 'scientific-committee', label: 'Scientific Committee' },
+    { id: 'organization-committee', label: 'Organization Committee' },
     { id: 'sponsors', label: 'Sponsors' }
   ];
+
+  // Handle navigation click
+  const handleNavClick = (sectionId: string) => {
+    setActiveSection(sectionId);
+    onNavigateToSection(sectionId);
+  };
 
   return (
     <nav 
@@ -71,34 +76,56 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             {/* Logo/Brand */}
-
             <div className="flex items-center">
-            <img 
-              src="/sp1.png" 
-              alt="University Logo" 
-              className="h-14 w-auto"
-            />
-          </div>
+              <img 
+                src="/sp1.png" 
+                alt="University Logo" 
+                className="h-14 w-auto"
+              />
+            </div>
+            
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-4">
               {navItems.map(item => (
                 <button 
                   key={item.id}
-                  onClick={() => onNavigateToSection(item.id)}
-                  className="text-white hover:text-green-400 transition-colors duration-300"
+                  onClick={() => handleNavClick(item.id)}
+                  className={`text-white transition-colors duration-300 ${
+                    activeSection === item.id ? 'text-green-400 font-bold' : 'hover:text-green-400'
+                  }`}
                 >
                   {item.label}
                 </button>
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button className="text-white focus:outline-none">
+            {/* Mobile Menu */}
+            <div className="md:hidden relative">
+              <button 
+                className="text-white focus:outline-none"
+                onClick={() => setIsVisible(prev => !prev)}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
               </button>
+              
+              {/* Mobile menu dropdown */}
+              <div className={`absolute right-0 mt-2 w-48 bg-black bg-opacity-90 backdrop-blur-sm rounded-md shadow-lg py-1 ${
+                isVisible ? 'block' : 'hidden'
+              }`}>
+                {navItems.map(item => (
+                  <button 
+                    key={item.id}
+                    onClick={() => handleNavClick(item.id)}
+                    className={`block px-4 py-2 text-sm w-full text-left ${
+                      activeSection === item.id ? 'text-green-400 font-bold' : 'text-white hover:text-green-400'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+// HonoraryChairsStage.tsx
 import React from 'react';
 
 interface HonoraryChairsStageProps {
@@ -12,11 +13,11 @@ const HonoraryChairsStage: React.FC<HonoraryChairsStageProps> = ({ isActive, sta
 
   return (
     <div
-      className={`transition-all duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 
+      className={`transition-all mt-44 duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 w-full flex justify-center items-center
       ${isActive && startAnimation ? 'opacity-100 scale-100' : 'opacity-0 scale-125'}`}
     >
       <h1
-        className="text-6xl font-extrabold tracking-wider mb-12"
+        className="text-6xl font-extrabold tracking-wider mb-12 text-center w-full"
         style={textShadowStyle}
       >
         Honorary Chairs

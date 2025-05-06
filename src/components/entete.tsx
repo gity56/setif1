@@ -190,7 +190,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
   };
 
   return (
-    <div className="fixed font1 inset-0 w-screen h-screen overflow-hidden m-0 p-0">
+    <div className="fixed  font1 inset-0 w-screen h-screen overflow-hidden m-0 p-0">
       {/* Video Background */}
       <video
         autoPlay
@@ -252,7 +252,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
           
         </div>
 
-        <div className="text-center text-white p-8 max-w-5xl">
+        <div className="text-center mt-56 text-white p-8 max-w-5xl">
           {/* Welcome Message - Stage 0 */}
           <div
             className={`transition-all duration-1000 absolute left-0 right-0 
@@ -269,7 +269,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
 
           {/* University Information - Stage 1 */}
           <div
-            className={`transition-all -mt-20 duration-1000 absolute left-0 right-0
+            className={`transition-all  duration-1000 absolute left-0 right-0
             ${animationStage === 1 ? 'opacity-100' : 'opacity-0'}`}
           >
             <h2
@@ -296,7 +296,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
           </div>
 
           <div
-            className={`transition-all -mt-32 duration-1000 absolute left-0 right-0
+            className={`transition-all -mt-12 duration-1000 absolute left-0 right-0
             ${animationStage === 2 ? 'opacity-100' : 'opacity-0'}`}
           >
             <h1

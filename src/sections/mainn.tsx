@@ -1,4 +1,4 @@
-// Updated Mainn.tsx with fixed alignment for committee sections
+// Updated Mainn.tsx with fixes for section display
 import React, { useState, useEffect, useRef } from 'react';
 import MatrixLinesBackground from '../styles/mat';
 import '../index.css';
@@ -18,13 +18,13 @@ interface MainnProps {
 const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) => {
   // Array of section components
   const sections = [
-    { id: "problematic", component: <ProblematicPage />, name: "Problematic" },
-    { id: "topic", component: <TopicsPage />, name: "Topics" },
-    { id: "objectives", component: <ObjectivesPage />, name: "Objectives" },
-    { id: "registration-fees", component: <RegistrationFeesPage />, name: "Registration Fees" },
-    { id: "scientific-committee", component: <CommitteeScientificPage />, name: "Scientific Committee" },
-    { id: "organization-committee", component: <OrganizationCommitteePage />, name: "Organization Committee" },
-    { id: "sponsors", component: <SponsorsPage />, name: "Sponsors" }
+    { id: "problematic", component: <ProblematicPage />, name: "" },
+    { id: "topic", component: <TopicsPage />, name:"" },
+    { id: "objectives", component: <ObjectivesPage />, name: "" },
+    { id: "registration-fees", component: <RegistrationFeesPage />, name: " " },
+    { id: "scientific-committee", component: <CommitteeScientificPage />, name: " " },
+    { id: "organization-committee", component: <OrganizationCommitteePage />, name: " " },
+    { id: "sponsors", component: <SponsorsPage />, name: "" }
   ];
 
   // Find the index of the initial active section
@@ -40,7 +40,7 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
   const sectionContainerRef = useRef<HTMLDivElement>(null);
   
   // State to track if section has overflow
-  const [hasOverflow, setHasOverflow] = useState(false);
+  const [, setHasOverflow] = useState(true); // Default to true to allow scrolling
   
   // State to track navbar visibility
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -57,23 +57,11 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
   useEffect(() => {
     checkForOverflow();
     
-    // Force scroll to top immediately and after a slight delay
+    // Force scroll to top immediately
     if (sectionContainerRef.current) {
       sectionContainerRef.current.scrollTop = 0;
-      window.scrollTo(0, 0);
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-      
-      // Also force scroll after content has time to render
-      setTimeout(() => {
-        if (sectionContainerRef.current) {
-          sectionContainerRef.current.scrollTop = 0;
-        }
-        window.scrollTo(0, 0);
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-      }, 100);
     }
+    window.scrollTo(0, 0);
     
     // Re-check on window resize
     const handleResize = () => {
@@ -82,15 +70,9 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
     
     window.addEventListener('resize', handleResize);
     
-    // Also check after a short delay to account for any dynamic content loading
+    // Also check after content is loaded
     const timer = setTimeout(() => {
       checkForOverflow();
-      
-      // Force scroll to top again after content is fully loaded
-      if (sectionContainerRef.current) {
-        sectionContainerRef.current.scrollTop = 0;
-      }
-      window.scrollTo(0, 0);
     }, 500);
     
     return () => {
@@ -104,17 +86,11 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
     if (sectionContainerRef.current) {
       const container = sectionContainerRef.current;
       const hasContentOverflow = container.scrollHeight > container.clientHeight;
-      setHasOverflow(hasContentOverflow);
+      setHasOverflow(hasContentOverflow || true); // Always allow scrolling
       
-      // Apply or remove overflow based on content
-      document.documentElement.style.overflow = hasContentOverflow ? 'auto' : 'hidden';
-      document.body.style.overflow = hasContentOverflow ? 'auto' : 'hidden';
-      
-      // Ensure no right padding is pushing the scrollbar away from edge
-      if (hasContentOverflow) {
-        document.documentElement.style.paddingRight = '0';
-        document.body.style.paddingRight = '0';
-      }
+      // Always allow scrolling
+      document.documentElement.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
     }
   };
 
@@ -127,34 +103,22 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
     setCurrentSection(prev => (prev < sections.length - 1 ? prev + 1 : prev));
   };
 
-
-
   return (
-    <div className="relative bg-black min-h-screen h-screen w-full overflow-hidden" style={{ padding: 0, margin: 0, maxWidth: '100vw' }}>
+    <div className="relative bg-black min-h-screen w-full overflow-x-hidden">
       {/* Background animation */}
       <MatrixLinesBackground />
 
-      <main className="relative z-10 w-full h-full flex flex-col" style={{ padding: 0, margin: 0 }}>
+      <main className="relative z-10 w-full min-h-screen flex flex-col">
         {/* Current section display */}
-        <div className="w-full h-full flex flex-col" style={{ padding: 0, margin: 0 }}>
-          {/* Section content with dynamic overflow */}
+        <div className="w-full flex-grow flex flex-col">
+          {/* Section content */}
           <div 
             ref={sectionContainerRef} 
-            className="flex-grow w-full"
+            className="flex-grow w-full overflow-y-auto"
             style={{ 
-              overflowY: hasOverflow ? 'auto' : 'hidden',
               overflowX: 'hidden',
-              height: '100vh', // Use full viewport height
-              position: 'relative',
-              maxWidth: '100vw',
-              padding: 0,
-              margin: 0,
-              right: 0,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              scrollbarWidth: 'none', // Firefox
-              msOverflowStyle: 'none' // IE and Edge
+              minHeight: '100vh',
+              paddingBottom: '80px', // Add bottom padding for navigation
             }}
             onMouseMove={(e) => {
               // Show navigation when mouse is near the bottom
@@ -168,30 +132,31 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
           >
             <section 
               id={sections[currentSection].id} 
-              className="w-full"
+              className="w-full py-16 px-4"
               style={{ 
-                padding: '2rem 1rem 4rem 1rem',
-                margin: 0,
                 minHeight: '100%',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'flex-start'
-
               }}
             >
               {sections[currentSection].component}
             </section>
           </div>
 
+          {/* Current section title indicator */}
+          <div className="fixed top-6 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-70 text-white px-4 py-2 rounded-full z-40">
+            {sections[currentSection].name}
+          </div>
+
           {/* Fixed navigation controls at bottom with visibility toggle */}
           <div 
-            className={`fixed bottom-0 left-0 w-full py-4 flex justify-between items-center px-8 bg-black bg-opacity-30 backdrop-blur-sm transition-opacity duration-300 z-50 ${
+            className={`fixed bottom-0 left-0 w-full py-4 flex justify-between items-center px-8 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 z-50 ${
               isNavVisible ? 'opacity-100' : 'opacity-0'
             }`}
             onMouseEnter={() => setIsNavVisible(true)}
             onMouseLeave={() => setIsNavVisible(false)}
-            style={{ margin: 0 }}
           >
             {/* Previous button */}
             <button 
@@ -208,8 +173,6 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
               </svg>
               <span>Previous</span>
             </button>
-
-
 
             {/* Next button */}
             <button 

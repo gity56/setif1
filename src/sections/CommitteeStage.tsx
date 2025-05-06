@@ -1,3 +1,5 @@
+
+// CommitteeStage.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -16,23 +18,23 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
 
   return (
     <div
-      className={`transition-all -mt-72 duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 flex flex-col items-center
+      className={`transition-all  duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 w-full flex flex-col items-center justify-center
       ${animationStage === 4 ? 'opacity-100 scale-100' : 
         (animationStage < 4 ? 'opacity-0 scale-90' : 'opacity-0 scale-125')}`}
     >
       <h2
-        className="text-5xl font-extrabold mb-10"
+        className="text-5xl font-extrabold mb-10 text-center w-full"
         style={textShadowStyle}
       >
         COMMITTEE MEMBERS
       </h2>
       
-      <div className="flex justify-center items-start space-x-16">
+      <div className="flex justify-center items-start space-x-16 mx-auto">
         {/* Column 1: Benamrani Hassen with Fatmi Messaoud below */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           {/* Benamrani Hassen */}
           <motion.div 
-            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white mx-auto"
             initial={{ y: 50, opacity: 0 }}
             animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.2 }}
@@ -51,16 +53,16 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             initial={{ opacity: 0 }}
             animate={animationStage === 4 ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mb-8"
+            className="mb-8 text-center w-full"
           >
             <h3
-              className="text-2xl font-bold mb-2"
+              className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
               Pr. Benamrani Hassen
             </h3>
             <p
-              className="text-xl font-semibold"
+              className="text-xl font-semibold text-center"
               style={textShadowStyle}
             >
               Head of Department
@@ -69,7 +71,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
           
           {/* Fatmi Messaoud (Below Benamrani) */}
           <motion.div 
-            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white mx-auto"
             initial={{ y: 50, opacity: 0 }}
             animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.4 }}
@@ -88,15 +90,16 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             initial={{ opacity: 0 }}
             animate={animationStage === 4 ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.7 }}
+            className="text-center w-full"
           >
             <h3
-              className="text-2xl font-bold mb-2"
+              className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
               Pr. Fatmi Messaoud
             </h3>
             <p
-              className="text-xl font-semibold"
+              className="text-xl font-semibold text-center"
               style={textShadowStyle}
             >
               Scientific Committee Chair
@@ -105,10 +108,10 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
         </div>
         
         {/* Column 2: K. AOUACHRIA with Malia below */}
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-center">
           {/* K. AOUACHRIA */}
           <motion.div 
-            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white mx-auto"
             initial={{ y: 50, opacity: 0 }}
             animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.6 }}
@@ -127,16 +130,16 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             initial={{ opacity: 0 }}
             animate={animationStage === 4 ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.9 }}
-            className="mb-8"
+            className="mb-8 text-center w-full"
           >
             <h3
-              className="text-2xl font-bold mb-2"
+              className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
               Pr. K. AOUACHRIA
             </h3>
             <p
-              className="text-xl font-semibold"
+              className="text-xl font-semibold text-center"
               style={textShadowStyle}
             >
               Committee Member
@@ -145,7 +148,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
           
           {/* Malia (Below AOUACHRIA) */}
           <motion.div 
-            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white"
+            className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white mx-auto"
             initial={{ y: 50, opacity: 0 }}
             animate={animationStage === 4 ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 1, delay: 0.8 }}
@@ -164,15 +167,16 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
             initial={{ opacity: 0 }}
             animate={animationStage === 4 ? { opacity: 1 } : {}}
             transition={{ duration: 1, delay: 1.1 }}
+            className="text-center w-full"
           >
             <h3
-              className="text-2xl font-bold mb-2"
+              className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
               Dr. Malia
             </h3>
             <p
-              className="text-xl font-semibold"
+              className="text-xl font-semibold text-center"
               style={textShadowStyle}
             >
               Committee Member
