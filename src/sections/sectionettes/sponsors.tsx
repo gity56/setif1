@@ -56,9 +56,9 @@ export default function SponsorsPage() {
   return (
     <div 
       ref={sectionRef}
-      className="flex flex-col font1 items-center justify-center min-h-screen bg-black p-4 w-full overflow-hidden"
+      className="flex -mt-32 flex-col font1 items-center justify-center min-h-screen bg-black p-4 w-full"
     >
-      <div className="flex flex-col w-full max-w-6xl gap-8 items-center px-4 md:px-8 mx-auto text-center">
+      <div className="flex flex-col w-full max-w-6xl gap-8 items-center justify-center px-4 md:px-8 mx-auto text-center">
         <h1 
           className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 transform transition-all duration-1000 ease-out text-center w-full ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
@@ -75,16 +75,16 @@ export default function SponsorsPage() {
           <div className="absolute bottom-2/3 right-1/3 text-6xl">❖</div>
         </div>
         
-        {/* Sponsors Grid - Modified for better centering */}
+        {/* Sponsors Grid - Centered with consistent spacing */}
         <div 
-          className={`w-full flex flex-wrap justify-center items-center gap-8 transform transition-all duration-1000 ease-out ${
+          className={`w-full flex flex-wrap justify-center items-center gap-12 transform transition-all duration-1000 ease-out ${
             logosFadeIn ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >
           {sponsors.map((sponsor, index) => (
             <div 
               key={index}
-              className={`flex flex-col items-center justify-center rounded-xl p-6 backdrop-blur-sm transition-all duration-500 hover:scale-105 ${
+              className={`flex flex-col items-center justify-center rounded-xl p-6 mx-auto backdrop-blur-sm transition-all duration-500 hover:scale-105 ${
                 sponsor.tier === 'platinum' 
                   ? 'border-2 border-yellow-400/50 bg-gradient-to-br from-yellow-900/20 to-yellow-700/10' 
                   : sponsor.tier === 'gold'
@@ -96,10 +96,11 @@ export default function SponsorsPage() {
                   ? '0 8px 32px rgba(212, 175, 55, 0.15)' 
                   : '0 8px 32px rgba(212, 175, 55, 0.1)',
                 transitionDelay: `${index * 150}ms`,
-                width: '280px' // Fixed width for consistent sizing
+                width: '280px', // Fixed width for consistent sizing
+                margin: '0 auto' // Center each card
               }}
             >
-              <div className="h-48 w-48 flex items-center justify-center mb-4 overflow-hidden rounded-lg bg-white/5 p-4">
+              <div className="h-48 w-48 flex items-center justify-center mb-4 overflow-hidden rounded-lg bg-white/5 p-4 mx-auto">
                 <img 
                   src={sponsor.logo} 
                   alt={`${sponsor.name} logo`} 
@@ -107,19 +108,19 @@ export default function SponsorsPage() {
                 />
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-2 text-center">{sponsor.name}</h3>
+              <h3 className="text-xl font-bold text-white mb-2 text-center w-full">{sponsor.name}</h3>
               
               <a 
                 href={`https://${sponsor.website}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-sm text-yellow-500 hover:text-yellow-400 transition-colors text-center"
+                className="text-sm text-yellow-500 hover:text-yellow-400 transition-colors text-center w-full"
               >
                 {sponsor.website}
               </a>
               
               <div 
-                className={`mt-4 py-1 px-3 rounded-full text-xs font-semibold text-center ${
+                className={`mt-4 py-1 px-3 rounded-full text-xs font-semibold text-center w-full mx-auto ${
                   sponsor.tier === 'platinum' 
                     ? 'bg-yellow-500/20 text-yellow-300' 
                     : sponsor.tier === 'gold'
@@ -133,6 +134,24 @@ export default function SponsorsPage() {
           ))}
         </div>
       </div>
+      
+      {/* Add style element for hiding scrollbar */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          body {
+            overflow-x: hidden;
+          }
+          /* Hide scrollbar for Chrome, Safari and Opera */
+          ::-webkit-scrollbar {
+            display: none;
+          }
+          /* Hide scrollbar for IE, Edge and Firefox */
+          html {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+          }
+        `
+      }} />
     </div>
   );
 }

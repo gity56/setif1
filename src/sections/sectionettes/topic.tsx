@@ -114,37 +114,19 @@ export default function EnhancedTopicsPage() {
           }`}
         >
           {/* Show default image when no topic is hovered, otherwise show the hovered topic image */}
-          {hoveredTopic ? (
-            <div className="w-full max-w-lg mx-auto transition-all duration-500 transform scale-105">
-              <img 
-                src={topicImages[hoveredTopic]} 
-                alt={`${hoveredTopic} illustration`}
-                className="w-full rounded-lg shadow-lg border-2 border-yellow-500"
-              />
-              <p className="text-center text-yellow-400 mt-4 font-semibold">{hoveredTopic}</p>
-            </div>
-          ) : (
+          <div className="w-full max-w-lg  mx-auto transition-all duration-500">
             <img 
-              src="/p001.png" 
-              alt="Scientific research illustration" 
-              className="w-full max-w-lg mx-auto"
+              src={hoveredTopic ? topicImages[hoveredTopic] : "/p001.png"} 
+              alt={hoveredTopic ? `${hoveredTopic} illustration` : "Scientific research illustration"}
+              className={`w-full rounded-lg shadow-lg ${hoveredTopic ? 'border-2 border-yellow-500 mt-40 transform scale-105' : ''}`}
             />
-          )}
+            {hoveredTopic && (
+              <p className="text-center text-yellow-400 mt-4 font-semibold">{hoveredTopic}</p>
+            )}
+          </div>
         </div>
       </div>
       
-      {/* This is the large central image that appears on hover */}
-      {hoveredTopic && (
-        <div className="fixed inset-0 pointer-events-none flex items-center justify-center z-10">
-          <div className="bg-black bg-opacity-70 p-6 rounded-xl transform transition-all duration-500 ease-out">
-            <img 
-              src={topicImages[hoveredTopic]}
-              alt={`${hoveredTopic} detail`}
-              className="max-w-2xl max-h-96 object-contain rounded shadow-2xl"
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }
