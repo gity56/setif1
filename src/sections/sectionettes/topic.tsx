@@ -110,7 +110,7 @@ export default function EnhancedTopicsPage() {
             <div className="flex flex-wrap gap-4 mt-8">
               <DocumentButton 
                 text="brochure ICICT25.pdf" 
-                link="https://mail.google.com/mail/u/0?ui=2&ik=e5c0e31a4c&attid=0.1&permmsgid=msg-f:1831746137755663681&th=196bab68439ebd41&view=att&zw&disp=inline" 
+                link="/brochure_ICICT25.pdf" 
               />
               <DocumentButton 
                 text="ICICT 2025_Template.docx" 
