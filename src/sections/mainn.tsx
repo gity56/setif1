@@ -1,4 +1,4 @@
-// Updated Mainn.tsx with fixes for section display
+// Updated Mainn.tsx with Contact section added after Sponsors
 import React, { useState, useEffect, useRef } from 'react';
 import MatrixLinesBackground from '../styles/mat';
 import '../index.css';
@@ -8,7 +8,10 @@ import ObjectivesPage from './sectionettes/obj';
 import RegistrationFeesPage from './sectionettes/reg';
 import CommitteeScientificPage from './sectionettes/committee';
 import OrganizationCommitteePage from './sectionettes/com';
+import LoginPage from './sectionettes/login';
+import ImportantDatesPage from './sectionettes/important';
 import SponsorsPage from './sectionettes/sponsors';
+import ContactUsPage from './sectionettes/contact'; // Import the ContactUsPage component
 
 // Define props for the Mainn component
 interface MainnProps {
@@ -24,7 +27,10 @@ const Mainn: React.FC<MainnProps> = ({ initialActiveSection = 'problematic' }) =
     { id: "registration-fees", component: <RegistrationFeesPage />, name: " " },
     { id: "scientific-committee", component: <CommitteeScientificPage />, name: " " },
     { id: "organization-committee", component: <OrganizationCommitteePage />, name: " " },
-    { id: "sponsors", component: <SponsorsPage />, name: "" }
+    { id: "login", component: <LoginPage />, name: " " },
+    { id: "important-dates", component: <ImportantDatesPage />, name: " " },
+    { id: "sponsors", component: <SponsorsPage />, name: "" },
+    { id: "contact", component: <ContactUsPage />, name: "" } // Add ContactUsPage after SponsorsPage
   ];
 
   // Find the index of the initial active section

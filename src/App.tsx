@@ -1,4 +1,4 @@
-// In App.tsx
+// In App.tsx - Updated with always visible navigation
 import './App.css'
 import { useState, useEffect } from 'react'
 import Entete from './components/entete'
@@ -6,9 +6,10 @@ import SecondPage from './sections/2nd-page'
 import SetifPage from './sections/stif'
 import Mainn from './sections/mainn'
 import Navbar from './components/nav'
+import AlgerianRepublicPage from './sections/alg' // Import the AlgerianRepublicPage component
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('first')
+  const [currentPage, setCurrentPage] = useState('algerian') // Start with Algerian page
   const [isAnimating, setIsAnimating] = useState(false)
   const [startSecondPageAnimation, setStartSecondPageAnimation] = useState(false)
   const [startSetifAnimation, setStartSetifAnimation] = useState(false)
@@ -18,19 +19,28 @@ function App() {
   const [, setSetifVisited] = useState(false)
   
   // Component mount/unmount control
-  const [mountFirst, setMountFirst] = useState(true)
+  const [mountAlgerian, setMountAlgerian] = useState(true) // Add Algerian page mount state
+  const [mountFirst, setMountFirst] = useState(false) // Start with first page not mounted
   const [mountSecond, setMountSecond] = useState(false)
   const [mountSetif, setMountSetif] = useState(false)
   const [mountMain, setMountMain] = useState(false)
 
   // Handle page transitions with proper mounting/unmounting
   useEffect(() => {
-    if (currentPage === 'first') {
+    if (currentPage === 'algerian') {
+      setMountAlgerian(true)
+      setMountFirst(false)
+      setMountSecond(false)
+      setMountSetif(false)
+      setMountMain(false)
+    } else if (currentPage === 'first') {
+      setMountAlgerian(false)
       setMountFirst(true)
       setMountSecond(false)
       setMountSetif(false)
       setMountMain(false)
     } else if (currentPage === 'second') {
+      setMountAlgerian(false)
       setMountFirst(true) // Keep first mounted during transition
       setMountSecond(true)
       setMountSetif(false)
@@ -41,6 +51,7 @@ function App() {
         setMountFirst(false)
       }, 1000)
     } else if (currentPage === 'setif') {
+      setMountAlgerian(false)
       setMountFirst(false)
       setMountSecond(true) // Keep second mounted during transition
       setMountSetif(true)
@@ -52,6 +63,7 @@ function App() {
         setMountSecond(false)
       }, 1000)
     } else if (currentPage === 'main') {
+      setMountAlgerian(false)
       setMountFirst(false)
       setMountSecond(false)
       
@@ -67,6 +79,16 @@ function App() {
       setMountMain(true)
     }
   }, [currentPage, mountSetif])
+
+  // Handler for Skip button on Algerian Republic page
+  const handleSkipToEntete = () => {
+    setIsAnimating(true)
+    
+    setTimeout(() => {
+      setCurrentPage('first')
+      setIsAnimating(false)
+    }, 1000)
+  }
 
   // First page "See More" button handler
   const handlePageTransition = () => {
@@ -167,17 +189,43 @@ function App() {
       min-height: 100vh;
       padding-top: 70px;
     }
+    
+    /* Custom background colors for sidebar */
+    .bg-navy {
+      background-color: #222831;
+    }
+    
+    /* Custom hover color for sidebar items */
+    .hover-custom:hover {
+      background-color: #6B240C !important;
+    }
   `;
 
   return (
     <>
       <style>{globalStyles}</style>
       
+      {/* Navigation - Always visible across all pages */}
+      <Navbar onNavigateToSection={handleNavigateToSection} />
+      
       <div className={currentPage === 'main' ? "w-full" : "w-full h-full"}>
+        {/* Algerian Republic Page - Only mounted when needed */}
+        {mountAlgerian && (
+          <div 
+            className={`absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out ${
+              isAnimating && currentPage === 'algerian' ? '-translate-x-full' : 
+              currentPage !== 'algerian' ? '-translate-x-full' : 'translate-x-0'
+            } page-content`}
+          >
+            <AlgerianRepublicPage onSkip={handleSkipToEntete} />
+          </div>
+        )}
+        
         {/* First Page - Only mounted when needed */}
         {mountFirst && (
           <div 
             className={`absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out ${
+              currentPage === 'algerian' ? 'translate-x-full' :
               isAnimating && currentPage === 'first' ? '-translate-x-full' : 
               currentPage !== 'first' ? '-translate-x-full' : 'translate-x-0'
             } page-content`}
@@ -190,7 +238,7 @@ function App() {
         {mountSecond && (
           <div 
             className={`absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out ${
-              currentPage === 'first' ? 'translate-x-full' : 
+              currentPage === 'first' || currentPage === 'algerian' ? 'translate-x-full' : 
               isAnimating && currentPage === 'second' ? '-translate-x-full' : 
               currentPage !== 'second' ? '-translate-x-full' : 'translate-x-0'
             }`}
@@ -207,7 +255,7 @@ function App() {
         {mountSetif && (
           <div 
             className={`absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out ${
-              currentPage === 'first' || currentPage === 'second' ? 'translate-x-full' : 
+              currentPage === 'first' || currentPage === 'second' || currentPage === 'algerian' ? 'translate-x-full' : 
               isAnimating && currentPage === 'setif' ? '-translate-x-full' : 
               currentPage !== 'setif' ? '-translate-x-full' : 'translate-x-0'
             }`}
@@ -224,7 +272,7 @@ function App() {
             } z-10`}
           >
             <div className="bg-black w-full">
-              <Navbar onNavigateToSection={handleNavigateToSection} />
+              {/* Navbar moved to be always visible at the application level */}
               <Mainn initialActiveSection={activeSection} />
             </div>
           </div>

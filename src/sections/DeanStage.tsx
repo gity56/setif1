@@ -48,7 +48,7 @@ const DeanStage: React.FC<DeanStageProps> = ({ animationStage }) => {
           className="text-3xl font-semibold mb-12 text-center w-full"
           style={textShadowStyle}
         >
-          Professor University Ferhat Abbas of Setif
+          Dean of the faculty
         </p>
       </div>
     </div>

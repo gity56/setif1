@@ -1,4 +1,4 @@
-// Updated Navbar component with improved navigation handling
+// Updated Navbar component as a scrollable sidebar with hamburger menu
 import React, { useState, useEffect } from 'react';
 import '../index.css';
 
@@ -7,130 +7,129 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [mouseY, setMouseY] = useState(0);
-  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('problematic');
 
-  // Track mouse position
+  // Close sidebar when clicking outside
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMouseY(e.clientY);
-      
-      // Show navbar when mouse is near the top of the screen
-      if (e.clientY < 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isSidebarOpen && !target.closest('.sidebar') && !target.closest('.hamburger-icon')) {
+        setIsSidebarOpen(false);
       }
     };
 
-    // Hide navbar when scrolling down, show when scrolling up
-    const handleScroll = () => {
-      const st = window.scrollY || document.documentElement.scrollTop;
-      if (st > lastScrollTop) {
-        // Scrolling down
-        setIsVisible(false);
-      } else {
-        // Scrolling up
-        setIsVisible(true);
-      }
-      setLastScrollTop(st <= 0 ? 0 : st);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll);
-    
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [lastScrollTop]);
+  }, [isSidebarOpen]);
 
   // Navigation Items
   const navItems = [
+    { id: 'home', label: 'Home' }, // Added Home navigation item
     { id: 'problematic', label: 'Problematic' },
     { id: 'topic', label: 'Topics' },
     { id: 'objectives', label: 'Objectives' },
     { id: 'registration-fees', label: 'Registration Fees' },
     { id: 'scientific-committee', label: 'Scientific Committee' },
-    { id: 'organization-committee', label: 'Organization Committee' },
-    { id: 'sponsors', label: 'Sponsors' }
+    { id: 'organization-committee', label: 'Organizing Committee' },
+    { id: 'login', label: 'Login' },
+    { id: 'important-dates', label: 'Important Dates' },
+    { id: 'sponsors', label: 'Sponsors' },
+    { id: 'contact', label: 'Contact Us' }
   ];
 
   // Handle navigation click
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
+    
+    // Special case for home to refresh the page
+    if (sectionId === 'home') {
+      window.location.reload();
+      return;
+    }
+    
     onNavigateToSection(sectionId);
+    setIsSidebarOpen(false); // Close sidebar after navigation
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => mouseY > 100 && setIsVisible(false)}
-    >
-      <div className="bg-black bg-opacity-30 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
-            {/* Logo/Brand */}
-            <div className="flex items-center">
-              <img 
-                src="/sp1.png" 
-                alt="University Logo" 
-                className="h-14 w-auto"
-              />
-            </div>
-            
-            {/* Navigation Links */}
-            <div className="hidden md:flex space-x-4">
-              {navItems.map(item => (
-                <button 
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`text-white transition-colors duration-300 ${
-                    activeSection === item.id ? 'text-green-400 font-bold' : 'hover:text-green-400'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+    <>
+      {/* Hamburger Menu Button - Only visible when sidebar is closed */}
+      <button
+        className={`fixed top-4 left-4 z-50 p-2 rounded-md focus:outline-none hover:bg-black hover:bg-opacity-30 transition-all duration-300 ${
+          isSidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        }`}
+        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        aria-label="Open menu"
+      >
+        <div className="hamburger-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </div>
+      </button>
 
-            {/* Mobile Menu */}
-            <div className="md:hidden relative">
+      {/* Sidebar Navigation - Only visible when toggled, now with scrolling */}
+      <div
+        className={`sidebar fixed top-0 left-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out shadow-lg ${
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } flex flex-col`}
+        style={{ backgroundColor: '#222831' }} // Changed to dark navy color
+      >
+        {/* Close button */}
+        <button 
+          className="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none"
+          onClick={() => setIsSidebarOpen(false)}
+          aria-label="Close menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        {/* Logo/Brand at the top of sidebar - fixed position */}
+        <div className="py-6 border-b border-gray-700">
+          <div className="flex justify-center items-center">
+            <img 
+              src="/sp1.png" 
+              alt="University Logo" 
+              className="h-26 w-auto"
+            />
+          </div>
+        </div>
+
+        {/* Scrollable Navigation Links Container */}
+        <div className="flex-1 overflow-y-auto">
+          <div className="flex flex-col py-4">
+            {navItems.map(item => (
               <button 
-                className="text-white focus:outline-none"
-                onClick={() => setIsVisible(prev => !prev)}
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className={`px-6 py-3 text-left transition-colors duration-300 hover-custom ${
+                  activeSection === item.id 
+                    ? 'text-white font-bold bg-gray-700' 
+                    : 'text-gray-200 hover:text-white'
+                }`}
+                style={{ 
+                  color: '#EEEEEE', // Light text color
+                }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+                {item.label}
               </button>
-              
-              {/* Mobile menu dropdown */}
-              <div className={`absolute right-0 mt-2 w-48 bg-black bg-opacity-90 backdrop-blur-sm rounded-md shadow-lg py-1 ${
-                isVisible ? 'block' : 'hidden'
-              }`}>
-                {navItems.map(item => (
-                  <button 
-                    key={item.id}
-                    onClick={() => handleNavClick(item.id)}
-                    className={`block px-4 py-2 text-sm w-full text-left ${
-                      activeSection === item.id ? 'text-green-400 font-bold' : 'text-white hover:text-green-400'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
-    </nav>
+
+      {/* Overlay when sidebar is open */}
+      {isSidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 transition-opacity duration-300"
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+    </>
   );
 };
 

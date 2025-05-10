@@ -21,6 +21,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
   // New states for image animations
   const [showImages, setShowImages] = useState(false);
   const [imageAnimationProgress, setImageAnimationProgress] = useState([0, 0, 0]);
+  const [showIcictLogo, setShowIcictLogo] = useState(false);
 
   useEffect(() => {
     // Stage 0: Welcome text typing
@@ -165,6 +166,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
               icictIndex++;
             } else {
               clearInterval(icictTyping);
+              setShowIcictLogo(true); // Show the ICICT logo when text is fully typed
               
               // Start date typing after ICICT completes
               let dateIndex = 0;
@@ -190,7 +192,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
   };
 
   return (
-    <div className="fixed  font1 inset-0 w-screen h-screen overflow-hidden m-0 p-0">
+    <div className="fixed font1 inset-0 w-screen h-screen overflow-hidden m-0 p-0">
       {/* Video Background */}
       <video
         autoPlay
@@ -202,7 +204,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
       </video>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex h-full items-center justify-center">
+      <div className="relative -mt-8 z-10 flex h-full items-center justify-center">
         {/* New Top Image Row */}
         <div className={`absolute top-8 left-0 right-0 flex justify-center space-x-12 transition-opacity duration-1000 ${showImages ? 'opacity-100' : 'opacity-0'}`}>
           <div className="relative w-48 h-48">
@@ -249,7 +251,6 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
               }}
             />
           </div>
-          
         </div>
 
         <div className="text-center mt-56 text-white p-8 max-w-5xl">
@@ -269,7 +270,7 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
 
           {/* University Information - Stage 1 */}
           <div
-            className={`transition-all  duration-1000 absolute left-0 right-0
+            className={`transition-all duration-1000 absolute left-0 right-0
             ${animationStage === 1 ? 'opacity-100' : 'opacity-0'}`}
           >
             <h2
@@ -306,13 +307,33 @@ const Header: React.FC<HeaderProps> = ({ onSeeMore }) => {
               {congressText}
               {animationStage === 2 && congressText && !icictText && <span className="typing-cursor-blink">|</span>}
             </h1>
-            <h3
-              className="text-6xl font-extrabold italic mb-12"
-              style={textShadowStyle}
-            >
-              {icictText}
-              {animationStage === 2 && icictText && !dateText && <span className="typing-cursor-blink">|</span>}
-            </h3>
+            
+            {/* ICICT Text and Logo container */}
+            <div className="flex items-center justify-center mb-12">
+              <h3
+                className="text-6xl font-extrabold italic"
+                style={textShadowStyle}
+              >
+                {icictText}
+                {animationStage === 2 && icictText && !dateText && <span className="typing-cursor-blink">|</span>}
+              </h3>
+              
+              {/* ICICT Logo placeholder */}
+              <div className={`ml-8 h-24 w-24 transition-opacity duration-500 ${showIcictLogo ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`ml-8 h-24 w-24 transition-opacity duration-500 ${showIcictLogo ? 'opacity-100' : 'opacity-0'}`}>
+                <img 
+                  src="/sp1.png" 
+                  alt="ICICT Logo Placeholder" 
+                  className="object-contain h-full w-full -mt-4"
+                  style={{ 
+                    filter: 'drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8)) drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5))'
+                  }}
+                />
+                {/* Replace the placeholder with your actual logo: src="/icict-logo.png" */}
+              </div>
+              </div>
+            </div>
+            
             <p
               className="text-4xl font-bold"
               style={textShadowStyle}

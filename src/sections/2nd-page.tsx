@@ -6,7 +6,6 @@ import RectorStage from './RectorStage';
 import DeanStage from './DeanStage';
 import ChairwomanStage from './ChairwomanStage';
 import CommitteeStage from './CommitteeStage';
-import DatesStage from './DatesStage';
 import Speakers from './speakers'; 
 
 interface SecondPageProps {
@@ -15,16 +14,14 @@ interface SecondPageProps {
   onSkipToSetif?: () => void;
 }
 
-const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComplete, onSkipToSetif }) => {
+const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onSkipToSetif }) => {
   const [animationStage, setAnimationStage] = useState(0);
 
   const handleSpeakersComplete = () => {
     setAnimationStage(6);
   };
   
-  const handleDatesComplete = () => {
-    onAnimationComplete();
-  };
+
 
   useEffect(() => {
     if (startAnimation) {
@@ -112,11 +109,7 @@ const SecondPage: React.FC<SecondPageProps> = ({ startAnimation, onAnimationComp
           />
         )}
         
-        {/* Stage 6: Dates */}
-        <DatesStage 
-          animationStage={animationStage === 6 ? 6 : -1} 
-          onComplete={handleDatesComplete}
-        />
+
       </div>
     </div>
   );

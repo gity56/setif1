@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 // Define types for component props
 interface DocumentButtonProps {
   text: string;
+  link: string;
 }
 
 interface TopicItemProps {
@@ -20,17 +21,22 @@ export default function EnhancedTopicsPage() {
   
   // Topic images mapping
   const topicImages: Record<string, string> = {
-    "Sustainable Chemistry": "/t3.png", // Replace with real image paths
-    "Green Chemistry": "/t4.png",
+    "Sustainable Chemistry": "/t4.png", // Replace with real image paths
+    "Green Chemistry": "/t1.png",
     "Artificial Intelligence": "/t2.png",
-    "Materials Science": "/t1.png"
+    "Materials Science": "/t3.png"
   };
   
-  // Document Button Component
-  const DocumentButton = ({ text }: DocumentButtonProps) => {
+  // Document Button Component - Updated with link prop
+  const DocumentButton = ({ text, link }: DocumentButtonProps) => {
     return (
       <div className="inline-block">
-        <button className="flex items-center justify-start w-fit h-12 border-none px-4 rounded bg-amber-800 gap-3 cursor-pointer transition-all duration-300 hover:bg-amber-700 active:scale-95">
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="flex items-center justify-start w-fit h-12 border-none px-4 rounded bg-amber-800 gap-3 cursor-pointer transition-all duration-300 hover:bg-amber-700 active:scale-95"
+        >
           <span className="relative w-10 h-10 flex flex-col items-center justify-end">
             <svg className="z-10 w-4/5 h-auto" width={146} height={113} viewBox="0 0 146 113" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 4C0 1.79086 1.79086 0 4 0H50.3802C51.8285 0 53.2056 0.627965 54.1553 1.72142L64.3303 13.4371C65.2799 14.5306 66.657 15.1585 68.1053 15.1585H141.509C143.718 15.1585 145.509 16.9494 145.509 19.1585V109C145.509 111.209 143.718 113 141.509 113H3.99999C1.79085 113 0 111.209 0 109V4Z" fill="url(#paint0_linear_117_4)" />
@@ -61,7 +67,7 @@ export default function EnhancedTopicsPage() {
             </svg>
           </span>
           <p className="text-white text-sm font-semibold tracking-wider">{text}</p>
-        </button>
+        </a>
       </div>
     );
   };
@@ -100,10 +106,16 @@ export default function EnhancedTopicsPage() {
             <TopicItem number="3" text="Artificial Intelligence for Environmental Protection" />
             <TopicItem number="4" text="Materials Science and Technologies" />
             
-            {/* Added buttons below topics */}
+            {/* Updated buttons with links */}
             <div className="flex flex-wrap gap-4 mt-8">
-              <DocumentButton text="brochure ICICT25.pdf" />
-              <DocumentButton text="ICICT 2025_Template.docx" />
+              <DocumentButton 
+                text="brochure ICICT25.pdf" 
+                link="https://mail.google.com/mail/u/0?ui=2&ik=e5c0e31a4c&attid=0.1&permmsgid=msg-f:1831746137755663681&th=196bab68439ebd41&view=att&zw&disp=inline" 
+              />
+              <DocumentButton 
+                text="ICICT 2025_Template.docx" 
+                link="https://docs.google.com/document/d/11EqZ6QBKGpdKeBJKLheWFqT7AMdCc1yu/edit?usp=sharing&ouid=100010354955434595196&rtpof=true&sd=true" 
+              />
             </div>
           </div>
         </div>

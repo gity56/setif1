@@ -72,7 +72,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
   }, [showCarousel, setifImages.length]);
 
   return (
-    <div className="relative font1 w-full h-screen overflow-hidden bg-black text-white">
+    <div className="relative font1  w-full h-screen overflow-hidden bg-black text-white">
       {/* Skip Button - Always visible in the top-right corner */}
       <div className="absolute top-4 right-4 z-50">
         <button 
@@ -154,7 +154,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
           >
-            <div className="w-full max-w-4xl mx-auto px-4">
+            <div className="w-full mt-16 max-w-4xl mx-auto px-4">
               {/* Carousel Title */}
               <motion.h2 
                 className="text-4xl text-black font-bold text-center mb-8"
