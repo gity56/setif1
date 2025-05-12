@@ -18,7 +18,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
 
   return (
     <div
-      className={`transition-all  duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 w-full flex flex-col items-center justify-center
+      className={`transition-all mt-8  duration-[3000ms] ease-[cubic-bezier(0.45,0.05,0.55,0.95)] absolute left-0 right-0 w-full flex flex-col items-center justify-center
       ${animationStage === 4 ? 'opacity-100 scale-100' : 
         (animationStage < 4 ? 'opacity-0 scale-90' : 'opacity-0 scale-125')}`}
     >
@@ -26,7 +26,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
         className="text-5xl font-extrabold mb-10 text-center w-full"
         style={textShadowStyle}
       >
-        COMMITTEE MEMBERS
+        COMMITTEE Chairs
       </h2>
       
       <div className="flex justify-center items-start space-x-16 mx-auto">
@@ -59,14 +59,9 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
               className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
-              Pr. Benamrani Hassen
+              Pr. Hassen Benamrani 
             </h3>
-            <p
-              className="text-xl font-semibold text-center"
-              style={textShadowStyle}
-            >
-              Head of Department
-            </p>
+
           </motion.div>
           
           {/* Fatmi Messaoud (Below Benamrani) */}
@@ -96,14 +91,9 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
               className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
-              Pr. Fatmi Messaoud
+              Pr. Messaoud Fatmi 
             </h3>
-            <p
-              className="text-xl font-semibold text-center"
-              style={textShadowStyle}
-            >
-              Scientific Committee Chair
-            </p>
+ 
           </motion.div>
         </div>
         
@@ -136,17 +126,11 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
               className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
-              Pr. K. AOUACHRIA
+              Pr. Kamal AOUACHRIA
             </h3>
-            <p
-              className="text-xl font-semibold text-center"
-              style={textShadowStyle}
-            >
-              Committee Member
-            </p>
+
           </motion.div>
           
-          {/* Malia (Below AOUACHRIA) */}
           <motion.div 
             className="w-40 h-40 mb-4 rounded-full overflow-hidden border-4 border-white mx-auto"
             initial={{ y: 50, opacity: 0 }}
@@ -173,14 +157,9 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
               className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
-              Dr. Malia
+              Dr. Malia HAMICI
             </h3>
-            <p
-              className="text-xl font-semibold text-center"
-              style={textShadowStyle}
-            >
-              Committee Member
-            </p>
+
           </motion.div>
         </div>
       </div>

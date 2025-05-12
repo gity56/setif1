@@ -42,7 +42,7 @@ const DeanStage: React.FC<DeanStageProps> = ({ animationStage }) => {
           className="text-5xl font-bold mb-4 text-center w-full"
           style={textShadowStyle}
         >
-          Pr. HABELHAMES Farid
+          Pr. Farid HABELHAMES 
         </motion.h2>
         <p 
           className="text-3xl font-semibold mb-12 text-center w-full"

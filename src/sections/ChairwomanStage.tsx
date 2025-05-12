@@ -42,13 +42,13 @@ const ChairwomanStage: React.FC<ChairwomanStageProps> = ({ animationStage }) => 
           className="text-5xl font-extrabold mb-4 text-center w-full"
           style={textShadowStyle}
         >
-          CONFERENCE CHAIRMAN
+          Congress CHAIRMAN
         </h2>
         <p
           className="text-4xl font-bold text-center w-full"
           style={textShadowStyle}
         >
-          Dr. L.TOUKAL
+          Dr. Linda TOUKAL
         </p>          
       </div>
     </div>

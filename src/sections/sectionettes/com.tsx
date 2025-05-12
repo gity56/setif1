@@ -58,7 +58,11 @@ export default function OrganizationCommitteePage() {
     { title: "Dr.", name: "D. BELFENNACHE", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "A. MESSALTI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "Y. MEDKOUR", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "F. GAIDI", affiliation: "Setif 1 University, Algeria", country: "dz" }
+    { title: "Dr.", name: "F. GAIDI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "H. Mansouri", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "M. attoui", affiliation: "Setif 1 University, Algeria", country: "dz" }
+
+
   ];
   
   return (

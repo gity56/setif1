@@ -72,21 +72,21 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
     [
       {
         name: "Dr Mohamed M. Chehimi",
-        affiliation: "CNRS, Université de Paris, ITODYS lab",
+        affiliation: "CNRS, University of Paris, ITODYS Laboratory",
         country: "France",
         flag: "fr", // country code for flag-icon-css
         image: "/k1.png" // Path to the speaker's image
       },
       {
         name: "Pr Anton Ficai",
-        affiliation: "Universitatea Politehnica din Bucuresti, Academy of Romanian Scientists",
+        affiliation: "Polytechnic University of Bucharest, Academy of Romanian Scientists",
         country: "Romania",
         flag: "ro", // country code for flag-icon-css
         image: "/k2.png" // Path to the speaker's image
       },
       {
         name: "Dr Mohammed Alshohail",
-        affiliation: "Head of cybexpsu at Prince Sultan University",
+        affiliation: "Head of CybexPSU at Prince Sultan University",
         country: "Saudi Arabia", 
         flag: "sa", // country code for flag-icon-css
         image: "/k3.png" // Path to the speaker's image
@@ -96,7 +96,7 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
     [
       {
         name: "Dr Mir Waqas Alam",
-        affiliation: "Associate Professor, Dept of Physics, College of Science, King Faisal University, Al-Hofuf",
+        affiliation: "Associate Professor, Department of Physics, College of Science, King Faisal University, Al-Hofuf",
         country: "Saudi Arabia",
         flag: "sa", // country code for flag-icon-css
         image: "/k4.png" // Path to the speaker's image
@@ -109,8 +109,8 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
         image: "/k7.png" // Path to the speaker's image
       },
       {
-        name: "Pr Baadji Nadjib",
-        affiliation: "Physics department, Mohamed Boudiaf university M'Sila",
+        name: "Pr Nadjib Baadji ",
+        affiliation: "Department of Physics, Mohamed Boudiaf University of MSila",
         country: "Algeria",
         flag: "dz", // country code for flag-icon-css
         image: "/k5.png" // Path to the speaker's image
@@ -119,8 +119,8 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
     // Group 3
     [
       {
-        name: "Prof. Mosbah FERKHI",
-        affiliation: "Professeur en Electrochimie..Energies renouvelables. Université Mohamed Seddik Ben Yahia de Jijel",
+        name: "Pr. Mosbah FERKHI",
+        affiliation: "Professor of Electrochemistry and Renewable Energies, Mohamed Seddik Ben Yahia University of Jijel",
         country: "Algeria",
         flag: "dz", // country code for flag-icon-css
         image: "/k6.png" // Path to the speaker's image

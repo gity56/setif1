@@ -6,7 +6,7 @@ interface SetifPageProps {
   onSkip: () => void; // New prop for handling skip action
 }
 
-const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
+const SetifPage: React.FC<SetifPageProps> = ({ startAnimation }) => {
   const [showDescription, setShowDescription] = useState(false);
   const [showMap, setShowMap] = useState(false);
   const [showCarousel, setShowCarousel] = useState(false);
@@ -71,18 +71,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
 
   return (
     <div className="relative font1  w-full h-screen overflow-hidden bg-black text-white">
-      {/* Skip Button - Always visible in the top-right corner */}
-      <div className="absolute top-4 right-4 z-50">
-        <button 
-          onClick={onSkip}
-          className="bg-white hover:bg-gray-200 text-black font-bold py-2 px-4 rounded-full shadow-lg transition-all duration-300 flex items-center space-x-2"
-        >
-          <span>Skip</span>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </button>
-      </div>
+ 
 
       {/* Description Section */}
       <AnimatePresence>
