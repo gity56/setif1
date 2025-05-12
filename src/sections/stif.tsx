@@ -31,7 +31,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
       // After map appears, show carousel after exactly 3 seconds
       const carouselTimer = setTimeout(() => {
         setShowCarousel(true);
-      }, 11500);
+      }, 10000);
   
       return () => {
         clearTimeout(descriptionTimer);
@@ -56,9 +56,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
     setActiveSlide((prev) => (prev === setifImages.length - 1 ? 0 : prev + 1));
   };
 
-  const goToPrevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? setifImages.length - 1 : prev - 1));
-  };
+
   
   // Auto-change images every 5 seconds
   useEffect(() => {
@@ -192,14 +190,7 @@ const SetifPage: React.FC<SetifPageProps> = ({ startAnimation, onSkip }) => {
                 </div>
                 {/* Controls */}
                 <div className="absolute inset-y-0 left-0 flex items-center">
-                  <button 
-                    onClick={goToPrevSlide}
-                    className="bg-black/50 hover:bg-black/70 text-white w-10 h-10 rounded-full flex items-center justify-center focus:outline-none -ml-5"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
+
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center">
                   <button 

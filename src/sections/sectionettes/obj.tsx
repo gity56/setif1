@@ -35,10 +35,10 @@ export default function ObjectivesPage() {
       ref={sectionRef}
       className="flex flex-col font1  items-center justify-center min-h-screen bg-black p-4 w-full overflow-hidden"
     >
-      <div className="flex flex-col mt-28 md:flex-row w-full max-w-6xl mt-28 gap-8 items-center px-4 md:px-8">
+      <div className="flex flex-col  md:flex-row w-full max-w-6xl  gap-8 items-center px-4 md:px-8">
         <div className="md:w-1/2 space-y-6">
           <h1 
-            className={`text-4xl md:text-6xl font-bold mb-8 text-yellow-500 transform transition-all duration-1000 ease-out ${
+            className={`text-4xl md:text-6xl font-bold  text-yellow-500 transform transition-all duration-1000 ease-out ${
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
             }`}
           >
@@ -51,8 +51,11 @@ export default function ObjectivesPage() {
                 textFadeIn ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
               }`}
             >
-              It will also provide a platform for researchers and industrialists to present 
-              and discuss the latest innovations, trends, challenges and opportunities.
+              The main objective of <strong>the 1 st International Congress on Innovations in Chemistry and
+              Technology (ICICT-2025)</strong> is to promote the exchange of knowledge, experiences, and
+              innovations among researchers, industrialists, and stakeholders in technological development,
+              focusing on emerging topics related to sustainable chemistry, green energy, artificial
+              intelligence for environmental protection, and advanced materials technologies.
             </p>
             
             <p 
@@ -60,9 +63,12 @@ export default function ObjectivesPage() {
                 textFadeIn ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
               }`}
             >
-              It is hoped that this conference will be an open avenue for new ideas in the 
-              field of high technology and for finding partners and innovative research topics, 
-              with oral and poster presentations.
+            By bringing together experts from various disciplines, this scientific meeting aims to stimulate
+            applied research, encourage the establishment of interdisciplinary partnerships, and promote
+            innovative solutions that address current challenges in sustainability and energy transition.
+            Through oral presentations, poster sessions, and interactive discussions, <strong>ICICT-2025</strong> seeks to
+            actively contribute to the emergence of science that supports cleaner, smarter, and more
+            responsible industrial development.
             </p>
           </div>
         </div>
@@ -75,7 +81,7 @@ export default function ObjectivesPage() {
           <img 
             src="/p002.png" 
             alt="Steps to success illustration" 
-            className="w-full max-w-lg mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+            className="w-full max-w-lg mx-auto mt-32 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

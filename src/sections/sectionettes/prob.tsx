@@ -28,14 +28,26 @@ const ProblematicPage = () => {
           
           <div className="space-y-6 text-lg md:text-xl leading-relaxed">
             <p>
-              <strong>(ICICT 2025)</strong> cordially invites you to participate at our upcoming joint event scheduled for Nov. 18-19th, 2025, Setif, Algeria.
+            In a world facing growing environmental challenges and an ever-increasing demand for
+            technology, the 1 st International Congress on Innovations in Chemistry and Technology 
+            <strong>(ICICT 2025)</strong> is part of a dynamic of reflection and innovation at the intersection of
+            chemistry, engineering, artificial intelligence, and materials science.
             </p>
             <p>
-              The First International Congress on Chemistry, Technology, and Materials Innovation is a unique platform designed to bring together researchers, engineers, and professionals to explore advancements in chemistry and materials science. Topics include integrating sustainable technologies into industry, such as green chemistry and energy optimization, as well as the development of new materials for environmental and energy applications.
-            </p>
+            Today, industries are
+            called upon to rethink their processes to meet the requirements of sustainable development by
+            adopting approaches that are more environmentally friendly and resource efficient.            </p>
             <p>
-              Artificial intelligence and mathematical modeling play a central role in predicting material properties and improving process efficiency. This congress serves as a catalyst for innovation to address global challenges in sustainability and energy transition.
-            </p>
+            At the
+            same time, advances in green chemistry, energy storage, environmental artificial intelligence,
+            and materials technologies are opening new horizons while also posing major scientific,
+            technical, and ethical challenges.            </p>
+            <p>The central issue of this edition is therefore the following:
+                how can we design and integrate innovative, sustainable, and intelligent technological
+                solutions to support a more efficient and responsible industry?</p>
+                <p><strong>ICICT-2025</strong> aims to bring
+                    together researchers, industrialists, and experts to discuss, exchange, and collectively build
+                    practical solutions to these challenges through a multidisciplinary approach.</p>
           </div>
         </div>
         

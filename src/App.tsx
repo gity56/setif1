@@ -1,4 +1,4 @@
-// In App.tsx - Updated with always visible navigation
+// In App.tsx - Updated with Home navigation to Entete
 import './App.css'
 import { useState, useEffect } from 'react'
 import Entete from './components/entete'
@@ -80,15 +80,7 @@ function App() {
     }
   }, [currentPage, mountSetif])
 
-  // Handler for Skip button on Algerian Republic page
-  const handleSkipToEntete = () => {
-    setIsAnimating(true)
-    
-    setTimeout(() => {
-      setCurrentPage('first')
-      setIsAnimating(false)
-    }, 1000)
-  }
+  
 
   // First page "See More" button handler
   const handlePageTransition = () => {
@@ -152,6 +144,16 @@ function App() {
     }
   }
 
+  // New handler for navigating to Entete/First page from anywhere
+  const handleNavigateToEntete = () => {
+    setIsAnimating(true)
+    
+    setTimeout(() => {
+      setCurrentPage('first')
+      setIsAnimating(false)
+    }, 1000)
+  }
+
   // Add global styles
   const globalStyles = `
     html, body, #root {
@@ -206,7 +208,10 @@ function App() {
       <style>{globalStyles}</style>
       
       {/* Navigation - Always visible across all pages */}
-      <Navbar onNavigateToSection={handleNavigateToSection} />
+      <Navbar 
+        onNavigateToSection={handleNavigateToSection}
+        onNavigateToEntete={handleNavigateToEntete} // Pass the new handler to Navbar
+      />
       
       <div className={currentPage === 'main' ? "w-full" : "w-full h-full"}>
         {/* Algerian Republic Page - Only mounted when needed */}
@@ -217,7 +222,7 @@ function App() {
               currentPage !== 'algerian' ? '-translate-x-full' : 'translate-x-0'
             } page-content`}
           >
-            <AlgerianRepublicPage onSkip={handleSkipToEntete} />
+            <AlgerianRepublicPage  />
           </div>
         )}
         

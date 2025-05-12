@@ -1,12 +1,13 @@
-// Updated Navbar component as a scrollable sidebar with hamburger menu
+// Updated Navbar component with home navigation to Entete instead of refresh
 import React, { useState, useEffect } from 'react';
 import '../index.css';
 
 interface NavbarProps {
   onNavigateToSection: (sectionId: string) => void;
+  onNavigateToEntete?: () => void; // New prop for navigating to Entete
 }
 
-const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
+const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('problematic');
 
@@ -27,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
 
   // Navigation Items
   const navItems = [
-    { id: 'home', label: 'Home' }, // Added Home navigation item
+    { id: 'home', label: 'Home' }, // Home navigation item now goes to Entete
     { id: 'problematic', label: 'Problematic' },
     { id: 'topic', label: 'Topics' },
     { id: 'objectives', label: 'Objectives' },
@@ -44,9 +45,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection }) => {
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
     
-    // Special case for home to refresh the page
+    // Special case for home to navigate to Entete
     if (sectionId === 'home') {
-      window.location.reload();
+      if (onNavigateToEntete) {
+        onNavigateToEntete(); // Navigate to Entete page
+      }
       return;
     }
     

@@ -107,14 +107,14 @@ export default function EnhancedTopicsPage() {
             <TopicItem number="4" text="Materials Science and Technologies" />
             
             {/* Updated buttons with links */}
-            <div className="flex flex-wrap gap-4 mt-8">
+            <div className="flex  flex-wrap gap-4 ">
               <DocumentButton 
-                text="brochure ICICT25.pdf" 
-                link="/brochure_ICICT25.pdf" 
+                text="brochure ICICT25" 
+                link="/brochure ICICT25 final.pdf" 
               />
               <DocumentButton 
-                text="ICICT 2025_Template.docx" 
-                link="https://docs.google.com/document/d/11EqZ6QBKGpdKeBJKLheWFqT7AMdCc1yu/edit?usp=sharing&ouid=100010354955434595196&rtpof=true&sd=true" 
+                text="ICICT 2025_Template" 
+                link="/Abstract_Template_ICICT2025 final.pdf" 
               />
             </div>
           </div>
