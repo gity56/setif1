@@ -1,17 +1,15 @@
-// Updated Navbar component with home navigation to Entete instead of refresh
 import React, { useState, useEffect } from 'react';
 import '../index.css';
 
 interface NavbarProps {
   onNavigateToSection: (sectionId: string) => void;
-  onNavigateToEntete?: () => void; // New prop for navigating to Entete
+  onNavigateToEntete?: () => void;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('problematic');
 
-  // Close sidebar when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
@@ -26,9 +24,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
     };
   }, [isSidebarOpen]);
 
-  // Navigation Items
   const navItems = [
-    { id: 'home', label: 'Home' }, // Home navigation item now goes to Entete
+    { id: 'home', label: 'Home' },
     { id: 'problematic', label: 'Problematic' },
     { id: 'objectives', label: 'Objectives' },
     { id: 'topic', label: 'Topics' },
@@ -41,27 +38,24 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
     { id: 'contact', label: 'Contact Us' }
   ];
 
-  // Handle navigation click
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
-    
-    // Special case for home to navigate to Entete
+
     if (sectionId === 'home') {
       if (onNavigateToEntete) {
-        onNavigateToEntete(); // Navigate to Entete page
+        onNavigateToEntete();
       }
       return;
     }
-    
+
     onNavigateToSection(sectionId);
-    setIsSidebarOpen(false); // Close sidebar after navigation
+    setIsSidebarOpen(false);
   };
 
   return (
     <>
-      {/* Hamburger Menu Button - Only visible when sidebar is closed */}
       <button
-        className={`fixed top-4 left-4 z-50 p-2 rounded-md focus:outline-none hover:bg-black hover:bg-opacity-30 transition-all duration-300 ${
+        className={`fixed top-4 left-4 z-50 p-2 rounded-md focus:outline-none transition-all duration-300 ${
           isSidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -74,14 +68,12 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
         </div>
       </button>
 
-      {/* Sidebar Navigation - Only visible when toggled, now with scrolling */}
       <div
         className={`sidebar fixed top-0 left-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out shadow-lg ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } flex flex-col`}
-        style={{ backgroundColor: '#222831' }} // Changed to dark navy color
+        style={{ backgroundColor: '#222831' }}
       >
-        {/* Close button */}
         <button 
           className="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none"
           onClick={() => setIsSidebarOpen(false)}
@@ -91,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        {/* Logo/Brand at the top of sidebar - fixed position */}
+
         <div className="py-6 border-b border-gray-700">
           <div className="flex justify-center items-center">
             <img 
@@ -102,36 +94,50 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
           </div>
         </div>
 
-        {/* Scrollable Navigation Links Container */}
         <div className="flex-1 overflow-y-auto">
           <div className="flex flex-col py-4">
             {navItems.map(item => (
-              <button 
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                className={`px-6 py-3 text-left transition-colors duration-300 hover-custom ${
-                  activeSection === item.id 
-                    ? 'text-white font-bold bg-gray-700' 
-                    : 'text-gray-200 hover:text-white'
-                }`}
-                style={{ 
-                  color: '#EEEEEE', // Light text color
-                }}
-              >
-                {item.label}
-              </button>
+              <div key={item.id} className="relative group mx-2">
+                <button 
+                  onClick={() => handleNavClick(item.id)}
+                  className={`w-full px-4 py-3 text-left transition-colors duration-300 rounded-none ${
+                    activeSection === item.id 
+                      ? 'text-white font-bold' 
+                      : 'text-gray-200 hover:text-white'
+                  }`}
+                  style={{ 
+                    color: activeSection === item.id ? '#FFFFFF' : '#EEEEEE',
+                    background: 'transparent',
+                  }}
+                >
+                  {item.label}
+                </button>
+
+                {/* Active underline */}
+                <div 
+                  className={`absolute bottom-0 left-0 h-0.5 origin-left transform transition-transform duration-300 ${
+                    activeSection === item.id ? 'scale-x-100' : 'scale-x-0'
+                  }`}
+                  style={{
+                    backgroundColor: '#00ADB5',
+                    width: '100%',
+                  }}
+                />
+
+                {/* Hover underline */}
+                <div 
+                  className="absolute bottom-0 left-0 h-0.5 group-hover:h-1 origin-left transform scale-x-0 group-hover:scale-x-100 transition-all duration-300"
+                  style={{
+                    backgroundColor: '#00ADB5',
+                    width: '100%',
+                    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                />
+              </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Overlay when sidebar is open */}
-      {isSidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-30 transition-opacity duration-300"
-          onClick={() => setIsSidebarOpen(false)}
-        />
-      )}
     </>
   );
 };
