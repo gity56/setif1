@@ -30,8 +30,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
   const navItems = [
     { id: 'home', label: 'Home' }, // Home navigation item now goes to Entete
     { id: 'problematic', label: 'Problematic' },
-    { id: 'topic', label: 'Topics' },
     { id: 'objectives', label: 'Objectives' },
+    { id: 'topic', label: 'Topics' },
     { id: 'registration-fees', label: 'Registration Fees' },
     { id: 'scientific-committee', label: 'Scientific Committee' },
     { id: 'organization-committee', label: 'Organizing Committee' },
