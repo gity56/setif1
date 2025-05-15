@@ -36,7 +36,7 @@ export default function SubmissionPage() {
   };
   
   const handleSubmissionGuide = () => {
-    window.open('https://docs.google.com/document/d/1W6r1eHA2Z6FJiZ-Hudk8xK9YBL9JtIUe/edit?usp=sharing&ouid=100010354955434595196&rtpof=true&sd=true', '_blank');
+    window.open('', '_blank');
   };
   
   return (

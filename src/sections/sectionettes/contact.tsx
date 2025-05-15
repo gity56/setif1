@@ -126,7 +126,7 @@ export default function ContactUsPage() {
               <p className="text-white mb-2">19000 Setif, Algeria</p>
               <p className="text-white mb-4">36.1901° N, 5.4202° E</p>
               <a
-                href="https://maps.google.com/?q=36.1901,5.4202"
+                href="https://maps.app.goo.gl/9z44J1L58mcDQwJc8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-500 text-black font-bold px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
