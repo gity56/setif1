@@ -126,7 +126,7 @@ export default function ContactUsPage() {
               <p className="text-white mb-2">19000 Setif, Algeria</p>
               <p className="text-white mb-4">36.1901° N, 5.4202° E</p>
               <a
-                href="https://maps.app.goo.gl/9z44J1L58mcDQwJc8"
+                href="https://www.google.com/maps/place/Universit%C3%A9+S%C3%A9tif+1+Ferhat+Abbas/@36.1932121,5.3480076,15.3z/data=!4m10!1m2!2m1!1suniversit%C3%A9+setif+1+el+baz!3m6!1s0x12f33e4f3fe02cdf:0x1dc93d8ec5f1cf93!8m2!3d36.1961376!4d5.3597161!15sChp1bml2ZXJzaXTDqSBzZXRpZiAxIGVsIGJhelocIhp1bml2ZXJzaXTDqSBzZXRpZiAxIGVsIGJhepIBCnVuaXZlcnNpdHmaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTkhkbll6ZWtKbkVBRaoBTxABKgoiBmVsIGJheigEMh8QASIb30QqHVElzfxfaC9CyWJtxP3PJvwHbvMcg0cYMh4QAiIadW5pdmVyc2l0w6kgc2V0aWYgMSBlbCBiYXrgAQD6AQUItAEQOQ!16s%2Fg%2F11_pkvncc?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-500 text-black font-bold px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
