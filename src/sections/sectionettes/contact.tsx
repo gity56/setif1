@@ -137,7 +137,7 @@ export default function ContactUsPage() {
   
             <div className="relative w-full h-64 md:h-96 bg-gray-900 flex items-center justify-center overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.1701872743747!2d5.357527376405601!3d36.19613757916193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f33e4f3fe02cdf%3A0x1dc93d8ec5f1cf93!2sUniversit%C3%A9%20S%C3%A9tif%201%20Ferhat%20Abbas!5e0!3m2!1sen!2sus!4v1716148862650!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3219.783702287852!2d5.3571411748637265!3d36.19614190151883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f33e4f3fe02cdf%3A0x1dc93d8ec5f1cf93!2sUniversit%C3%A9%20S%C3%A9tif%201%20Ferhat%20Abbas!5e0!3m2!1sfr!2sdz!4v1747518424221!5m2!1sfr!2sdz"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
