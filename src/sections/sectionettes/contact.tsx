@@ -126,7 +126,7 @@ export default function ContactUsPage() {
               <p className="text-white mb-2">19000 Setif, Algeria</p>
               <p className="text-white mb-4">36.1901° N, 5.4202° E</p>
               <a
-                href="https://www.google.com/maps/place/Universit%C3%A9+S%C3%A9tif+1+Ferhat+Abbas/@36.1932121,5.3480076,15.3z/data=!4m10!1m2!2m1!1suniversit%C3%A9+setif+1+el+baz!3m6!1s0x12f33e4f3fe02cdf:0x1dc93d8ec5f1cf93!8m2!3d36.1961376!4d5.3597161!15sChp1bml2ZXJzaXTDqSBzZXRpZiAxIGVsIGJhelocIhp1bml2ZXJzaXTDqSBzZXRpZiAxIGVsIGJhepIBCnVuaXZlcnNpdHmaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTkhkbll6ZWtKbkVBRaoBTxABKgoiBmVsIGJheigEMh8QASIb30QqHVElzfxfaC9CyWJtxP3PJvwHbvMcg0cYMh4QAiIadW5pdmVyc2l0w6kgc2V0aWYgMSBlbCBiYXrgAQD6AQUItAEQOQ!16s%2Fg%2F11_pkvncc?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D"
+                href="https://www.google.com/maps/place/Universit%C3%A9+S%C3%A9tif+1+Ferhat+Abbas/@36.1961376,5.3597161,15z"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-yellow-500 text-black font-bold px-4 py-2 rounded-lg hover:bg-yellow-400 transition-colors"
@@ -137,7 +137,7 @@ export default function ContactUsPage() {
   
             <div className="relative w-full h-64 md:h-96 bg-gray-900 flex items-center justify-center overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3211.6822114751087!2d5.417857!3d36.190143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f315832afb65d1%3A0xb07a5e8ab70201b7!2sUniversit%C3%A9%20Ferhat%20Abbas%20S%C3%A9tif%201!5e0!3m2!1sen!2sdz!4v1715280044548!5m2!1sen!2sdz"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3222.1701872743747!2d5.357527376405601!3d36.19613757916193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f33e4f3fe02cdf%3A0x1dc93d8ec5f1cf93!2sUniversit%C3%A9%20S%C3%A9tif%201%20Ferhat%20Abbas!5e0!3m2!1sen!2sus!4v1716148862650!5m2!1sen!2sus"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -154,4 +154,4 @@ export default function ContactUsPage() {
       </div>
     </div>
   );
-} 
+}
