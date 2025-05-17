@@ -126,7 +126,7 @@ const CommitteeStage: React.FC<CommitteeStageProps> = ({ animationStage }) => {
               className="text-2xl font-bold mb-2 text-center"
               style={textShadowStyle}
             >
-              Pr. Kamal AOUACHRIA
+              Pr. Kamira AOUACHRIA
             </h3>
 
           </motion.div>
