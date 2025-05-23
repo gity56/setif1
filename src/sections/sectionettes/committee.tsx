@@ -37,51 +37,51 @@ export default function CommitteeScientificPage() {
     { title: "Dr.", name: "M. HAMICI", affiliation: "Setif 1 University, Algeria", country: "dz" }
   ];
 
-  // Scientific Committee Members data with country code
+  // Scientific Committee Members data with country code - exact match from your list
   const committeeMembers = [
     { title: "Pr.", name: "N. MAOUCHE", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "R. FITAS", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "A. ZOUAOUI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "S. BOUCETTA", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "L. CHIBANE", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "A. YOUSEF", affiliation: "Fayoum University, Egypt", country: "eg" },
-    { title: "Dr.", name: "A. FICAI", affiliation: "University Politehnica of Bucharest, Romania", country: "ro" },
-    { title: "Dr.", name: "W. DERAFA", affiliation: "Al-Jouf University, Saudi Arabia", country: "sa" },
-    { title: "Dr.", name: "M. CHEHIMI", affiliation: "Université de Paris 7, France", country: "fr" },
-    { title: "Dr.", name: "S. I. AHMED", affiliation: "Taif University, Saudi Arabia", country: "sa" },
-    { title: "Dr.", name: "O. MOUMENI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "S. ABBASSI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "M.T. BENANIBA", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "M. FERHAT", affiliation: "University of El Oued, Algeria", country: "dz" },
-    { title: "Dr.", name: "K. BOURAS", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "T. BOUREMANI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "K. BOUFERRACHE", affiliation: "University of M'sila, Algeria", country: "dz" },
-    { title: "Pr.", name: "M. FOUDIA", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "N. CHAHMANA", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "D. CHALLAL", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "Amr M. ABDELGHANY", affiliation: "Cairo University, Egypt", country: "eg" },
-    { title: "Dr.", name: "M. ALSHOHAIL", affiliation: "Riadh University, Saudi Arabia", country: "sa" },
     { title: "Pr.", name: "N. BAADJI", affiliation: "University of M'sila, Algeria", country: "dz" },
+    { title: "Pr.", name: "R. FITAS", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "M. FERKHI", affiliation: "University of Jijel, Algeria", country: "dz" },
+    { title: "Pr.", name: "A. ZOUAOUI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "F. ZOUKRAMI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "N. ALIOUANE", affiliation: "University of Bejaia, Algeria", country: "dz" },
+    { title: "Pr.", name: "S. BOUCETTA", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Pr.", name: "N. ALIOUANE", affiliation: "University of Bejaia, Algeria", country: "dz" },
+    { title: "Pr.", name: "L. CHIBANE", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "A. DJEDOUANI", affiliation: "ENS Constantine, Algeria", country: "dz" },
+    { title: "Pr.", name: "A. YOUSEF", affiliation: "Cairo University, Egypt", country: "eg" },
     { title: "Pr.", name: "H. AYADI", affiliation: "University of Skikda, Algeria", country: "dz" },
+    { title: "Pr.", name: "A. FICAI", affiliation: "University Politehnica of Bucharest, Romania", country: "ro" },
     { title: "Pr.", name: "A. SAKER", affiliation: "University of Biskra, Algeria", country: "dz" },
+    { title: "Dr.", name: "W. DERAFA", affiliation: "Al-Jouf University, Saudi Arabia", country: "sa" },
     { title: "Pr.", name: "C. BOUREMAL", affiliation: "University of Biskra, Algeria", country: "dz" },
+    { title: "Pr.", name: "M. CHEHIMI", affiliation: "University of Paris 7, France", country: "fr" },
     { title: "Dr.", name: "M. ALAM", affiliation: "King Faisal University, Saudi Arabia", country: "sa" },
+    { title: "Pr.", name: "S. I. AHMED", affiliation: "Taif University, Saudi Arabia", country: "sa" },
     { title: "Dr.", name: "N. BARHOUMI", affiliation: "ENSI, Tunisia", country: "tn" },
-    { title: "Dr.", name: "A. GHAMES", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "O. MOUMENI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Pr.", name: "A. MADANI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "F. BELILITA", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "R. KERKOUR", affiliation: "University of Mila, Algeria", country: "dz" },
+    { title: "Pr.", name: "M.T. BENANIBA", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "A. ADDALA", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "M. FERHAT", affiliation: "University of El Oued, Algeria", country: "dz" },
     { title: "Dr.", name: "D. HANNACHI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "K. BOURAS", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "F. KAHOUL", affiliation: "University of M'Sila, Algeria", country: "dz" },
+    { title: "Pr.", name: "T. BOUREMANI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "R. AYECHE", affiliation: "University of BBA, Algeria", country: "dz" },
+    { title: "Dr.", name: "K. BOUFERRACHE", affiliation: "University of M'sila, Algeria", country: "dz" },
     { title: "Dr.", name: "A. MAKHLOUFI", affiliation: "University of Khenchela, Algeria", country: "dz" },
-    { title: "Dr.", name: "L. MITICHE", affiliation: "University of Tizi-Ouzou, Algeria", country: "dz" },
+    { title: "Pr.", name: "M. FOUDIA", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Pr.", name: "L. MITICHE", affiliation: "University of Tizi-Ouzou, Algeria", country: "dz" },
+    { title: "Dr.", name: "N. CHAHMANA", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "F.Z. SATOUR", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "D. CHALLAL", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "S. MOUSSAOUI", affiliation: "University of Boumerdes, Algeria", country: "dz" },
-    { title: "Dr.", name: "N. BOUNEDJAR", affiliation: "University of Skikda, Algeria", country: "dz" },
+    { title: "Pr.", name: "A. M. ABDELGHANY", affiliation: "Cairo University, Egypt", country: "eg" },
+    { title: "Dr.", name: "S. CHAOUI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Pr.", name: "M. ALSHOHAIL", affiliation: "Amir Sultan University, Saudi Arabia", country: "sa" },
     { title: "Pr.", name: "A. AIDI", affiliation: "University of Biskra, Algeria", country: "dz" }
   ];
   
@@ -91,9 +91,8 @@ export default function CommitteeScientificPage() {
       className="flex flex-col font1 items-center justify-center min-h-screen bg-black p-4 w-full overflow-hidden"
     >
       <div className="flex flex-col w-full max-w-6xl gap-8 items-center px-4 md:px-8 mx-auto text-center">
-
-      <h1 
-          className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 text-center w-full transform transition-all duration-1000 ease-out ${
+        <h1 
+          className={`text-4xl md:text-6xl font-bold mb-12 text-yellow-500 transform transition-all duration-1000 ease-out text-center w-full ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
           }`}
         >
@@ -115,7 +114,7 @@ export default function CommitteeScientificPage() {
           <div className="mb-12 mx-auto w-full max-w-lg">
             {/* First Chairman */}
             <div 
-              className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-yellow-900/30 to-yellow-700/10 text-center mb-6"
+              className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-purple-900/30 to-purple-700/10 text-center mb-6"
               style={{ boxShadow: '0 8px 32px rgba(212, 175, 55, 0.1)' }}
             >
               <div className="flex items-center justify-center">
@@ -132,7 +131,7 @@ export default function CommitteeScientificPage() {
 
             {/* Second Chairman */}
             <div 
-              className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-yellow-900/30 to-yellow-700/10 text-center"
+              className="rounded-xl border border-yellow-500/30 p-6 backdrop-blur-sm bg-gradient-to-br from-purple-900/30 to-purple-700/10 text-center"
               style={{ boxShadow: '0 8px 32px rgba(212, 175, 55, 0.1)' }}
             >
               <div className="flex items-center justify-center">
@@ -160,11 +159,11 @@ export default function CommitteeScientificPage() {
             SCIENTIFIC COMMITTEE MEMBERS
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mx-auto w-full">
             {committeeMembers.map((member, index) => (
               <div 
                 key={index}
-                className="rounded-lg border border-yellow-500/20 p-4 backdrop-blur-sm bg-gradient-to-br from-blue-900/20 to-blue-700/5 hover:from-blue-900/30 hover:to-blue-700/10 transition-all duration-300 text-center"
+                className="rounded-lg border border-yellow-500/20 p-4 backdrop-blur-sm bg-gradient-to-br from-green-900/20 to-green-700/5 hover:from-green-900/30 hover:to-green-700/10 transition-all duration-300 text-center"
                 style={{ 
                   boxShadow: '0 4px 16px rgba(212, 175, 55, 0.05)',
                   animationDelay: `${index * 50}ms`,

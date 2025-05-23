@@ -31,10 +31,10 @@ export default function AlgerianRepublicPage() {
 
   const fullUniversityText = "Setif-1 University Ferhat ABBAS";
   const fullFacultyText = "Faculty of Technology";
-  const fullDepartmentText = "Department of Basic Education In Technology";
-  const fullLabText = "Electrochemistry And Materials Laboratory";
+  const fullDepartmentText = "Department of Basic Education in Technology";
+  const fullLabText = "Electrochemistry and Materials Laboratory";
   const fullOrganizeText = "Organize";
-  const fullCongressText = "1st International Congress On Innovations In Chemistry And Technology";
+  const fullCongressText = "1st International Congress on Innovations in Chemistry and Technology";
   const fullIcictText = "ICICT-2025";
   const fullDateText = "18-19th November 2025";
   const fullAuditoriumText = "Auditorium Mouloud Kassem Nait Belkassem";
@@ -182,21 +182,17 @@ export default function AlgerianRepublicPage() {
           >
             <div className="flex justify-center ml-52 items-center gap-8 mb-6">
               <img
-                src="/bg1000.png"
-                alt="Emblem"
-                className="w-50  h-auto object-contain"
-              />
-              <img
                 src="/u1.png"
                 alt="University Logo"
-                className="w-48 h-auto mt-16 object-contain"
+                className="w-72 ml-20 h-auto mt-16 mb-12 object-contain"
               />
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold  -mt-12 text-amber-900 mb-4 min-h-[80px]" style={textShadowStyle}>
+            <h1 className="text-3xl -ml-8 md:text-5xl font-bold -mt-12 text-amber-900  min-h-[80px] whitespace-nowrap text-center" style={textShadowStyle}>
               {titleText}
-              {titleText.length < fullTitleText.length && <span className=" animate-pulse">|</span>}
+              {titleText.length < fullTitleText.length && <span className="animate-pulse">|</span>}
             </h1>
+
 
             <h2 className="text-2xl md:text-3xl font-semibold ml-20 text-amber-800 mb-6 min-h-[60px]" style={textShadowStyle}>
               {subtitleText}

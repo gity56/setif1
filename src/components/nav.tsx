@@ -55,7 +55,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
   return (
     <>
       <button
-        className={`fixed top-4 left-4 z-50 p-2 rounded-md focus:outline-none transition-all duration-300 ${
+        className={`fixed top-4 left-4 z-50 p-2 rounded-md bg-[#222831] focus:outline-none transition-all duration-300 ${
           isSidebarOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -68,21 +68,23 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
         </div>
       </button>
 
+
       <div
         className={`sidebar fixed top-0 left-0 h-full w-64 z-40 transform transition-transform duration-300 ease-in-out shadow-lg ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } flex flex-col`}
         style={{ backgroundColor: '#222831' }}
       >
-        <button 
-          className="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none"
-          onClick={() => setIsSidebarOpen(false)}
-          aria-label="Close menu"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+      <button 
+        className="absolute top-4 right-4 p-2 rounded-md bg-[#222831] text-white hover:text-gray-300 focus:outline-none border border-gray-600 shadow-md"
+        onClick={() => setIsSidebarOpen(false)}
+        aria-label="Close menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+            
 
         <div className="py-6 border-b border-gray-700">
           <div className="flex justify-center items-center">
