@@ -36,7 +36,7 @@ export default function SubmissionPage() {
   };
   
   const handleSubmissionGuide = () => {
-    window.open('/GUIDE-SOUMISSION (1).pdf', '_blank');
+    window.open('/GUIDE-SOUMISSION EN.pdf', '_blank');
   };
   
   return (

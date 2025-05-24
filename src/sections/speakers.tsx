@@ -125,6 +125,13 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
         flag: "dz", // country code for flag-icon-css
         image: "/k6.png" // Path to the speaker's image
       },
+            {
+        name: "Pr A.YOUSEF",
+        affiliation: "Cairo University",
+        country: "Egypt",
+        flag: "eg", // country code for flag-icon-css
+        image: "/k7.jpeg" // Path to the speaker's image
+      },
     ]
   ];
 
@@ -173,18 +180,20 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
     return (
       <motion.div 
         key={`group${groupIndex}`}
-        className="flex justify-center items-center space-x-4 md:space-x-12 flex-wrap md:flex-nowrap w-full"
+        className="flex justify-center items-center space-x-4 md:space-x-12 flex-wrap md:flex-nowrap w-full mx-auto"
         initial="hidden"
         animate="visible"
         exit="exit"
         variants={containerVariants}
+        style={{ justifyContent: 'center' }}
       >
         {groupData.map((speaker: Speaker, index: number) => (
           <motion.div
             key={`group${groupIndex}-${index}`}
-            className="flex flex-col items-center mb-8 md:mb-0 text-center mx-auto"
+            className="flex flex-col items-center mb-8 md:mb-0 text-center flex-shrink-0"
             variants={speakerVariants}
             transition={{ duration: 0.8, delay: 0.2 * index }}
+            style={{ minWidth: '200px', maxWidth: '250px' }}
           >
             {/* Speaker Image */}
             <motion.div 
@@ -247,7 +256,7 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
   };
 
   return (
-    <div className="text-center mt-28 text-white py-8 relative flex flex-col items-center justify-center w-full overflow-visible bg-transparent min-h-screen">
+    <div className="text-center mt-12 text-white py-8 relative flex flex-col items-center justify-center w-full overflow-visible bg-transparent min-h-screen">
       {/* Title - Always visible */}
       <motion.h2
         className="text-4xl md:text-6xl font-extrabold mb-8 text-yellow-500 text-center w-full"
@@ -260,7 +269,7 @@ const Speakers: React.FC<SpeakersProps> = ({ startAnimation = false, onComplete 
       </motion.h2>
 
       {/* Speaker Groups - Only one visible at a time */}
-      <div className="w-full max-w-6xl mx-auto relative h-96 flex justify-center items-center">
+      <div className="w-full max-w-6xl mx-auto relative h-96 flex justify-center items-center px-4">
         <AnimatePresence mode="wait">
           {displayGroup === 1 && renderSpeakerGroup(1, speakersData[0])}
           {displayGroup === 2 && renderSpeakerGroup(2, speakersData[1])}
