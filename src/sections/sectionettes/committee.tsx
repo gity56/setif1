@@ -39,6 +39,8 @@ export default function CommitteeScientificPage() {
 
   // Scientific Committee Members data with country code - exact match from your list
   const committeeMembers = [
+    { title: "Pr.", name: "F. HABELHAMES", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Pr.", name: "A. AIDI", affiliation: "University of Biskra, Algeria", country: "dz" }, 
     { title: "Pr.", name: "N. MAOUCHE", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Pr.", name: "N. BAADJI", affiliation: "University of M'sila, Algeria", country: "dz" },
     { title: "Pr.", name: "R. FITAS", affiliation: "Setif 1 University, Algeria", country: "dz" },
@@ -81,8 +83,7 @@ export default function CommitteeScientificPage() {
     { title: "Dr.", name: "S. MOUSSAOUI", affiliation: "University of Boumerdes, Algeria", country: "dz" },
     { title: "Pr.", name: "A. M. ABDELGHANY", affiliation: "Cairo University, Egypt", country: "eg" },
     { title: "Dr.", name: "S. CHAOUI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Pr.", name: "M. ALSHOHAIL", affiliation: "Amir Sultan University, Saudi Arabia", country: "sa" },
-    { title: "Pr.", name: "A. AIDI", affiliation: "University of Biskra, Algeria", country: "dz" }
+    { title: "Pr.", name: "M. ALSHOHAIL", affiliation: "Amir Sultan University, Saudi Arabia", country: "sa" }
   ];
   
   return (
