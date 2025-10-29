@@ -34,7 +34,7 @@ export default function AlgerianRepublicPage() {
   const fullDepartmentText = "Department of Basic Education in Technology";
   const fullLabText = "Electrochemistry and Materials Laboratory";
   const fullOrganizeText = "Organize";
-  const fullCongressText = "1st International Congress on Innovations in Chemistry and Technology";
+  const fullCongressText = "The 1st International Congress on Innovations in Chemistry and Technology";
   const fullIcictText = "ICICT-2025";
   const fullDateText = "18-19th November 2025";
   const fullAuditoriumText = "Auditorium Mouloud Kassem Nait Belkassem";

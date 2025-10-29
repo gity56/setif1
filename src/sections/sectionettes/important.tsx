@@ -37,13 +37,13 @@ export default function ImportantDatesPage() {
     },
     {
       title: "Submission Deadline",
-      date: "October 28th, 2025",
+      date: "November 8th, 2025",
       icon: "⏰",
       bgClass: "from-purple-900/30 to-purple-700/10"
     },
     {
       title: "Notification Acceptance",
-      date: "November 1st, 2025",
+      date: "November 10th, 2025",
       icon: "✉️",
       bgClass: "from-green-900/30 to-green-700/10"
     },
