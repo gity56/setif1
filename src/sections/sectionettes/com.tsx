@@ -37,17 +37,18 @@ export default function OrganizationCommitteePage() {
   ];
 
   // Organization Committee Members data with country codes
-  const committeeMembers = [
+const committeeMembers = [
+    // --- New Members from List ---
     { title: "Dr.", name: "S. ABACI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "Y. SLIMANI", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "N. BOUNEDJAR", affiliation: "University of El Oued, Algeria", country: "dz" },
+    { title: "Dr.", name: "N. BOUNEDJAR", affiliation: "El Oued University, Algeria", country: "dz" },
     { title: "Dr.", name: "A. BENYAHIA", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "M. REFFAS", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "R. AOUABED", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "Z. BENNEGHMOUCHE", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "N. GHARZOULI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "N. BELKHAM", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "K. HADDADI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "N. MELIAM", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "D. BELFENNACHE", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "O. ZERGUINE", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "A. MESSALTI", affiliation: "Setif 1 University, Algeria", country: "dz" },
@@ -55,13 +56,19 @@ export default function OrganizationCommitteePage() {
     { title: "Dr.", name: "Y. MEDKOUR", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "B. BARKA", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "F. GAIDI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "A. TOUNSI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "Y. BELLAL", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "A. HANI", affiliation: "Setif 1 University, Algeria", country: "dz" }, // Used Dr. as title was missing
+    { title: "Dr.", name: "S. DERBEL", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "M. LATOUI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "R. BENRAMDANE", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "H. MANSOURI", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "A. BOUDJEMAA", affiliation: "Setif 1 University, Algeria", country: "dz" }, // Used Dr. as title was missing
+    { title: "Dr.", name: "H. MANSOURI", affiliation: "Setif 1 University, Algeria", country: "dz" }, // Used Dr. as title was missing
     { title: "Dr.", name: "L. MEKHICHE", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "M. BENAMRANI", affiliation: "Setif 1 University, Algeria", country: "dz" },
     { title: "Dr.", name: "O. BOUKHENFOUF", affiliation: "Setif 1 University, Algeria", country: "dz" },
-    { title: "Dr.", name: "A. GHAMES", affiliation: "Setif 1 University, Algeria", country: "dz" }
+    { title: "Dr.", name: "A. GHAMES", affiliation: "Setif 1 University, Algeria", country: "dz" },
+    { title: "Dr.", name: "A. BENHENI", affiliation: "Setif 1 University, Algeria", country: "dz" }
   ];
   
   return (
