@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import "../index.css";
 
 export default function AlgerianRepublicPage() {
   const [titleText, setTitleText] = useState("");
@@ -9,6 +8,7 @@ export default function AlgerianRepublicPage() {
   const [titleComplete, setTitleComplete] = useState(false);
   const [subtitleComplete, setSubtitleComplete] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const [universityText, setUniversityText] = useState("");
   const [facultyText, setFacultyText] = useState("");
@@ -44,6 +44,11 @@ export default function AlgerianRepublicPage() {
 
   useEffect(() => {
     setIsVisible(true);
+    // Show notification after 2 seconds
+    const notificationTimer = setTimeout(() => {
+      setShowNotification(true);
+    }, 2000);
+    
     if (titleText.length < fullTitleText.length) {
       const timeout = setTimeout(() => {
         setTitleText(fullTitleText.substring(0, titleText.length + 1));
@@ -52,6 +57,8 @@ export default function AlgerianRepublicPage() {
     } else if (!titleComplete) {
       setTitleComplete(true);
     }
+    
+    return () => clearTimeout(notificationTimer);
   }, [titleText, titleComplete]);
 
   useEffect(() => {
@@ -169,14 +176,36 @@ export default function AlgerianRepublicPage() {
   return (
     <div
       ref={sectionRef}
-      className="fixed font1 inset-0 w-screen h-screen bg-[#FFFDF6] overflow-auto"
+      className="fixed inset-0 w-screen h-screen bg-amber-50 overflow-auto"
     >
-
+      {/* Notification */}
+      <div
+        className={`fixed top-4 right-4 bg-amber-800 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 z-50 ${
+          showNotification ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        }`}
+      >
+        <div className="flex items-center gap-2">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="font-semibold">ICICT's schedule is here!!</span>
+        </div>
+      </div>
 
       <div className="flex items-center justify-center min-h-screen p-4 text-center">
         <div className="flex flex-col items-center w-full max-w-4xl">
           <div
-            className={`flex flex-col items-center transform  transition-all duration-1000 ease-out ${
+            className={`flex flex-col items-center transform transition-all duration-1000 ease-out ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
             }`}
           >
@@ -188,13 +217,12 @@ export default function AlgerianRepublicPage() {
               />
             </div>
 
-            <h1 className="text-3xl -ml-8 md:text-5xl font-bold -mt-12 text-amber-900  min-h-[80px] whitespace-nowrap text-center" style={textShadowStyle}>
+            <h1 className="text-3xl -ml-8 md:text-5xl font-bold -mt-12 text-amber-900 min-h-[80px] whitespace-nowrap text-center" style={textShadowStyle}>
               {titleText}
               {titleText.length < fullTitleText.length && <span className="animate-pulse">|</span>}
             </h1>
 
-
-            <h2 className="text-2xl md:text-3xl font-semibold ml-20 text-amber-800 mb-6 min-h-[60px]" style={textShadowStyle}>
+            <h2 className="text-2xl md:text-3xl font-semibold text-amber-800 mb-6 min-h-[60px]" style={textShadowStyle}>
               {subtitleText}
               {titleComplete && subtitleText.length < fullSubtitleText.length && <span className="animate-pulse">|</span>}
             </h2>

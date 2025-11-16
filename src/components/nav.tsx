@@ -26,6 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
 
   const navItems = [
     { id: 'home', label: 'Home' },
+    { id: 'schedule', label: 'Schedule', isPdf: true, pdfUrl: '/ICICT_program_complet.pdf' },
     { id: 'problematic', label: 'Problematic' },
     { id: 'objectives', label: 'Objectives' },
     { id: 'topic', label: 'Topics' },
@@ -40,6 +41,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
 
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId);
+
+    // Check if this is a PDF link
+    const item = navItems.find(nav => nav.id === sectionId);
+    if (item && item.isPdf && item.pdfUrl) {
+      window.open(item.pdfUrl, '_blank');
+      setIsSidebarOpen(false);
+      return;
+    }
 
     if (sectionId === 'home') {
       if (onNavigateToEntete) {
