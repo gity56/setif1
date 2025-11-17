@@ -26,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigateToSection, onNavigateToEntete
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'schedule', label: 'Schedule', isPdf: true, pdfUrl: '/ICICT_program_complet.pdf' },
+    { id: 'schedule', label: 'Schedule', isPdf: true, pdfUrl: '/Programme final.pdf' },
     { id: 'problematic', label: 'Problematic' },
     { id: 'objectives', label: 'Objectives' },
     { id: 'topic', label: 'Topics' },

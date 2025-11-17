@@ -200,6 +200,28 @@ export default function AlgerianRepublicPage() {
           </svg>
           <span className="font-semibold">ICICT's schedule is here!!</span>
         </div>
+      </div>   
+       <div
+        className={`fixed top-20 right-4 bg-amber-800 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 z-50 ${
+          showNotification ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
+        }`}
+      >
+        <div className="flex items-center gap-2">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span className="font-semibold">Participants who did not find their names <br />in the program but received their acceptance letter <br />are invited to come to the congress <br /> on the day that suits them and take part</span>
+        </div>
       </div>
 
       <div className="flex items-center justify-center min-h-screen p-4 text-center">
